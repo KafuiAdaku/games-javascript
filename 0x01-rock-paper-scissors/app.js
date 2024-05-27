@@ -11,6 +11,6 @@ possibleChoices.forEach(possiblechoice =>
 }));
 
 function getComputerChoice() {
-    const randomNumber = (Math.floor(Math.random() * possibleChoices.length())) + 1;
+    const randomNumber = (Math.floor(Math.random() * possibleChoices.length)) + 1;
     console.log(randomNumber);
 }
