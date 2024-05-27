@@ -10,8 +10,8 @@ body {
 }
 
 div {
-    align-content: center;
-    vertical-align: center;
+    position: relative;
+    left: 30%;
 }
 
 button {
@@ -30,4 +30,9 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+footer p {
+    text-align: center;
+    margin: 20px;
 }
