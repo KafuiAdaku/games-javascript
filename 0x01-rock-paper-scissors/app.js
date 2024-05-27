@@ -4,7 +4,13 @@ const resultDisplay = document.getElementById('result')
 const possibleChoices = document.querySelectorAll('button')
 let userChoice
 
-possibleChoices.forEach(possiblechoice => possiblechoice.addEventListener('click', (event) => {
+possibleChoices.forEach(possiblechoice => 
+    possiblechoice.addEventListener('click', (event) => {
     userChoice = event.target.id
     userChoiceDisplay.innerHTML = userChoice
-}))
+}));
+
+function getComputerChoice() {
+    const randomNumber = (Math.floor(Math.random() * possibleChoices.length())) + 1;
+    console.log(randomNumber);
+}
