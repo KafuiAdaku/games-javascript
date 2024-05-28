@@ -1,10 +1,10 @@
-const userChoiceDisplay = createElement('h2');
-const computerChoiceDisplay = createElement('h2');
-const resultDisplay = createElement('h2');
+const userChoiceDisplay = document.createElement('h2');
+const computerChoiceDisplay = document.createElement('h2');
+const resultDisplay = document.createElement('h2');
 
 let userChoice, computerChoice;
 
-const gameDiv = getElementById('game');
+const gameDiv = document.getElementById('game');
 gameDiv.append(userChoiceDisplay, computerChoiceDisplay, resultDisplay);
 
 choices = ['rock', 'paper', 'scissors'];
