@@ -42,7 +42,7 @@ function handleClick(event) {
     userChoice = event.target.id;
     userChoiceDisplay.innerHTML = 'User choice: ' + userChoice;
     computerChoice = genComputerChoice()
-    computerChoiceDisplay.innerHTML = 'Computer choice' + computerChoice
+    computerChoiceDisplay.innerHTML = 'Computer choice: ' + computerChoice
 
     getResult()
 }
