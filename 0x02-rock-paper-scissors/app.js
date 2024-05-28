@@ -52,4 +52,5 @@ for (let i = 0; i < choices.length; i++) {
     button.id = choices[i]
     button.innerHTML = choices[i]
     button.addEventListerner('click', handleClick)
+    gameDiv.appendChild(button)
 }
