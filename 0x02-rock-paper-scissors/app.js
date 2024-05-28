@@ -1,3 +1,6 @@
+let userChoice
+let computerChoice
+
 const userChoiceDisplay = document.createElement('h2')
 const computerChoiceDisplay = document.createElement('h2')
 const resultDisplay = document.createElement('h2')
@@ -13,37 +16,31 @@ function genComputerChoice() {
 }
 
 function getResult() {
-    if (computerChoice === userChoice) {
-        return "It's a draw"
-    }
-    if (computerChoice === 'rock' && userChoice === 'paper') {
-        return 'You win!'
-    }
-    if (computerChoice === 'rock' && userChoice === 'scissors') {
-        return 'You lose!'
-    }
-    if (computerChoice === 'paper' && userChoice === 'rock') {
-        return 'You lose!'
-    }
-    if (computerChoice === 'paper' && userChoice === 'scissors') {
-        return 'You win!'
-    }
-    if (computerChoice === 'scissors' && userChoice === 'rock') {
-        return 'You win'
-    }
-    if (computerChoice === 'scissors' && userChoice === 'paper') {
-        return 'You lose!'
+    switch (userChoice + computerChoice) {
+        case 'rockpaper':
+        case 'rockscissors':
+        case 'paperrock':
+        case 'scissorspaper':
+            resultDisplay.innerHTML = 'YOU WIN!';
+            break;
+        case 'rockpaper':
+        case 'paperscissors':
+        case 'scissorsrock':
+            resultDisplay.innerHTML = 'YOU LOSE!';
+            break;
+        case userChoice + computerChoice:
+            resultDisplay.innerHTML = "IT'S A DRAW!";
+            break;
     }
 
 }
 
 const handleClick = (event) =>  {
-    const userChoice = event.target.id  // event.target.innerHTML also works just fine
+    userChoice = event.target.id  // event.target.innerHTML also works just fine
     userChoiceDisplay.innerHTML = 'User choice: ' + userChoice
-    const computerChoice = genComputerChoice()
+    computerChoice = genComputerChoice()
     computerChoiceDisplay.innerHTML = 'Computer choice: ' + computerChoice
-
-    getResult()
+    resultDisplay.innerHTML = 'Result: ' + getResult()
 }
 
 for (let i = 0; i < choices.length; i++) {
