@@ -17,7 +17,6 @@ function genComputerChoice() {
 
 function getResult() {
     switch (userChoice + computerChoice) {
-        case 'rockpaper':
         case 'rockscissors':
         case 'paperrock':
         case 'scissorspaper':
@@ -28,7 +27,9 @@ function getResult() {
         case 'scissorsrock':
             resultDisplay.innerHTML = 'YOU LOSE!';
             break;
-        case userChoice + computerChoice:
+        case 'rockrock':
+        case 'paperpaper':
+        case 'scissorsscissors':
             resultDisplay.innerHTML = "IT'S A DRAW!";
             break;
     }
