@@ -39,9 +39,9 @@ function getResult() {
 
 const handleClick = (event) =>  {
     const userChoice = event.target.id  // event.target.innerHTML also works just fine
-    userChoiceDisplay.innerHTML = userChoice
+    userChoiceDisplay.innerHTML = 'User choice: ' + userChoice
     const computerChoice = genComputerChoice()
-    computerChoiceDisplay.innerHTML = computerChoice
+    computerChoiceDisplay.innerHTML = 'Computer choice: ' + computerChoice
 
     getResult()
 }
