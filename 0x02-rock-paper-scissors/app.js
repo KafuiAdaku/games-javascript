@@ -9,7 +9,7 @@ choices = ['rock', 'paper', 'scissors']
 
 function genComputerChoice() {
     const rand = Math.floor(Math.random() * choices.length)
-    return choces[rand]
+    return choices[rand]
 }
 
 function getResult() {
