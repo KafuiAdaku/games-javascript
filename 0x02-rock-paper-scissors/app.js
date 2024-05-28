@@ -41,7 +41,7 @@ const handleClick = (event) =>  {
     userChoiceDisplay.innerHTML = 'User choice: ' + userChoice
     computerChoice = genComputerChoice()
     computerChoiceDisplay.innerHTML = 'Computer choice: ' + computerChoice
-    resultDisplay.innerHTML = 'Result: ' + getResult()
+    getResult
 }
 
 for (let i = 0; i < choices.length; i++) {
