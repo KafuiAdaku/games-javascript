@@ -10,7 +10,7 @@ gameDiv.append(userChoiceDisplay, computerChoiceDisplay, resultDisplay);
 choices = ['rock', 'paper', 'scissors'];
 
 /***** Helper Functions *****/
-function getComputerChoice() {
+function genComputerChoice() {
     const randomInt = Math.floor(Math.random() * choices.length)
     return choices[randomInt]
 }
@@ -41,8 +41,8 @@ function getResult() {
 function handleClick(event) {
     userChoice = event.target.id;
     userChoiceDisplay.innerHTML = 'User choice: ' + userChoice;
-    computerChoice = getComputerChoice()
-    computerChoiceDisplay.innerHTML = computerChoice
+    computerChoice = genComputerChoice()
+    computerChoiceDisplay.innerHTML = 'Computer choice' + computerChoice
 
     getResult()
 }
@@ -51,6 +51,6 @@ for (let i = 0; i < choices.length; i++) {
     const button = document.createElement('button')
     button.id = choices[i]
     button.innerHTML = choices[i]
-    button.addEventListerner('click', handleClick)
+    button.addEventListener('click', handleClick)
     gameDiv.appendChild(button)
 }
