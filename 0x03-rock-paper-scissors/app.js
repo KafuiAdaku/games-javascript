@@ -25,7 +25,8 @@ function getResult(userChoice, computerChoice) {
         case 'paperpaper':
         case 'scissorsscissors':
             resultDisplay.innerHTML = 'You chose ' + userChoice +
-            ' and the computer chose ' + computerChoice + ", IT'S A DRAW!"
+            ' and the computer chose ' + computerChoice + ", IT'S A DRAW!";
+            break;
     }
 }
 
