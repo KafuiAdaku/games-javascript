@@ -51,4 +51,6 @@ const cardArray = [
 
 cardArray.sort(() => 0.5 - Math.random())  // randomly sort array
 
-console.log(cardArray)
+
+const gameGrid = document.querySelector('#grid')
+console.log(gameGrid)
