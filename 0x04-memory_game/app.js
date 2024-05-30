@@ -75,6 +75,7 @@ function checkMatch() {
     if (cardsSelected[0] === cardsSelected[1]) {
         alert('You found a match!');
         cards[cardsSelectedId[0]].setAttribute('src', './images/white.png');
+        cards[cardsSelectedId[1]].setAttribute('src', './images/white.png');
     }
 }
 
