@@ -68,6 +68,6 @@ createBoard();
 
 function flipCard(event) {
     console.log(cardArray);
-    const cardId = this.getAttribute.data-id;
+    const cardId = this.getAttribute('data-id');
     cardArray[cardId].name;
 }
