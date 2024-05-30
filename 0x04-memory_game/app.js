@@ -69,5 +69,5 @@ createBoard();
 function flipCard() {
     console.log(cardArray);
     const cardId = this.getAttribute('card-id');
-    cardArray[cardId].name;
+    console.log(cardArray[cardId].name);
 }
