@@ -58,7 +58,7 @@ function createBoard() {
     for (let i = 0; i < 10; i++) {
         const card = document.createElement('img');
         card.setAttribute('src', './images/stone_wall.png');
-        card.setAttriubute('card-id', i);
+        card.setAttribute('card-id', i);
         gameGrid.appendChild(card);
     }
 }
