@@ -47,10 +47,20 @@ const cardArray = [
         name: 'elephant',
         img: './images/elephant.png'
     }
-]
+];
 
-cardArray.sort(() => 0.5 - Math.random())  // randomly sort array
+cardArray.sort(() => 0.5 - Math.random());  // randomly sort array
 
 
-const gameGrid = document.querySelector('#grid')
-console.log(gameGrid)
+const gameGrid = document.querySelector('#grid');
+
+function createBoard() {
+    for (let i = 0; i < 10; i++) {
+        const card = document.createElement('img');
+        card.setAttribute('src', './images/stone_wall.png');
+        card.setAttriubute('card-id', i);
+        gameGrid.appendChild(card);
+    }
+}
+
+createBoard();
