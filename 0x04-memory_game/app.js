@@ -50,6 +50,7 @@ const cardArray = [
 ];
 
 cardArray.sort(() => 0.5 - Math.random());  // randomly sort array
+const cardsSelected = [];
 
 
 const gameGrid = document.querySelector('#grid');
@@ -69,5 +70,10 @@ createBoard();
 function flipCard() {
     console.log(cardArray);
     const cardId = this.getAttribute('card-id');
-    console.log(cardArray[cardId].name);
+    cardsSelected.push(cardArray[cardId].name);
+    this.setAttribute('src', cardArray[cardId].img)
+
+    if (cardsSelected.length === 2) {
+        console.log('check for match');
+    }
 }
