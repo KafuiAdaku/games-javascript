@@ -50,9 +50,14 @@ const cardArray = [
 ];
 
 cardArray.sort(() => 0.5 - Math.random());  // randomly sort array
+const turnsDisplay = document.querySelector('#turns');
+let turns = 0;
+const matchDisplay = document.querySelector('#match');
+let match = 0;
 const cardsSelected = [];
 const cardsSelectedId = [];
 const cardsWon = [];
+
 
 
 const gameGrid = document.querySelector('#grid');
@@ -78,6 +83,8 @@ function flipCard() {
     this.removeEventListener('click', flipCard);  // To avoid selecting an image twice
 
     if (cardsSelected.length === 2) {
+        turns++;
+        turnsDisplay.textContent = turns;
         setTimeout(checkMatch, 500);
     }
 }
@@ -88,7 +95,8 @@ function checkMatch() {
     const choiceTwoId = cardsSelectedId[1]
 
     if (cardsSelected[0] === cardsSelected[1]) {
-        alert('You found a match!');
+        match++;
+        matchDisplay.textContent = match
         cards[choiceOneId].setAttribute('src', './images/white.png');
         cards[choiceTwoId].setAttribute('src', './images/white.png');
         cardsWon.push(...cardsSelected);
@@ -101,4 +109,8 @@ function checkMatch() {
     }
     cardsSelected.length = 0;
     cardsSelectedId.length = 0;
+
+    if (cardsWon.length === cardArray.length) {
+        alert(`You did it all in ${turns} turns`);
+    }
 }
