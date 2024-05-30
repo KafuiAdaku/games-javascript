@@ -60,7 +60,14 @@ function createBoard() {
         card.setAttribute('src', './images/blank.png');
         card.setAttribute('card-id', i);
         gameGrid.appendChild(card);
+        gameGrid.addEventListener('click', flipCard)
     }
 }
 
 createBoard();
+
+function flipCard(event) {
+    console.log(cardArray);
+    const cardId = this.getAttribute.data-id;
+    cardArray[cardId].name;
+}
