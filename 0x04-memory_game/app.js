@@ -91,15 +91,13 @@ function checkMatch() {
         alert('You found a match!');
         cards[choiceOneId].setAttribute('src', './images/white.png');
         cards[choiceTwoId].setAttribute('src', './images/white.png');
-        cards[choiceOneId].removeEventListener('click', flipCard);
-        cards[choiceTwoId].removeEventListener('click', flipCard);
-        cardsWon.push(...cardsSelected)
+        cardsWon.push(...cardsSelected);
     }
     else {
         cards[choiceOneId].setAttribute('src', './images/blank.png');
         cards[choiceTwoId].setAttribute('src', './images/blank.png');
-        cards[choiceOneId].removeEventListener('click', flipCard);  //Re-add event listener
-        cards[choiceTwoId].removeEventListener('click', flipCard);  //Re-add event listener
+        cards[choiceOneId].addEventListener('click', flipCard);  //Re-add event listener
+        cards[choiceTwoId].addEventListener('click', flipCard);  //Re-add event listener
     }
     cardsSelected.length = 0;
     cardsSelectedId.length = 0;
