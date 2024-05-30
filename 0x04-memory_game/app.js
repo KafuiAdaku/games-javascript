@@ -59,8 +59,8 @@ function createBoard() {
         const card = document.createElement('img');
         card.setAttribute('src', './images/blank.png');
         card.setAttribute('card-id', i);
+        card.addEventListener('click', flipCard)
         gameGrid.appendChild(card);
-        gameGrid.addEventListener('click', flipCard)
     }
 }
 
