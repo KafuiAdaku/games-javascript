@@ -1,51 +1,51 @@
 const cardArray = [
     {
-        name: 'lion',
-        img: './images/lion.png'
+        name: 'cheeseburger',
+        img: './images/cheeseburger.png'
     },
     {
-        name: 'alligator',
+        name: 'fries',
+        img: './images/fries.png'
+    },
+    {
+        name: 'hotdog',
+        img: './images/hotdog.png'
+    },
+    {
+        name: 'milkshake',
+        img: './images/milkshake.png'
+    },
+    {
+        name: 'pizza',
+        img: './images/pizza.png'
+    },
+    {
+        name: 'ice-cream',
         img: './images/alligator.png'
     },
     {
-        name: 'chicken',
-        img: './images/chicken.png'
+        name: 'cheeseburger',
+        img: './images/cheeseburger.png'
     },
     {
-        name: 'horse',
-        img: './images/horse.png'
+        name: 'fries',
+        img: './images/fries.png'
     },
     {
-        name: 'frog',
-        img: './images/frog.png'
+        name: 'hotdog',
+        img: './images/hotdog.png'
     },
     {
-        name: 'elephant',
-        img: './images/elephant.png'
+        name: 'milkshake',
+        img: './images/milkshake.png'
     },
     {
-        name: 'lion',
-        img: './images/lion.png'
+        name: 'pizza',
+        img: './images/pizza.png'
     },
     {
-        name: 'alligator',
+        name: 'ice-cream',
         img: './images/alligator.png'
-    },
-    {
-        name: 'chicken',
-        img: './images/chicken.png'
-    },
-    {
-        name: 'horse',
-        img: './images/horse.png'
-    },
-    {
-        name: 'frog',
-        img: './images/frog.png'
-    },
-    {
-        name: 'elephant',
-        img: './images/elephant.png'
     }
 ];
 
@@ -57,7 +57,7 @@ const gameGrid = document.querySelector('#grid');
 function createBoard() {
     for (let i = 0; i < 10; i++) {
         const card = document.createElement('img');
-        card.setAttribute('src', './images/stone_wall.png');
+        card.setAttribute('src', './images/blank.png');
         card.setAttribute('card-id', i);
         gameGrid.appendChild(card);
     }
