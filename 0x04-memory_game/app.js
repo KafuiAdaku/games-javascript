@@ -75,6 +75,7 @@ function flipCard() {
     cardsSelectedId.push(cardId);
     cardsSelected.push(cardArray[cardId].name);
     this.setAttribute('src', cardArray[cardId].img)
+    this.removeEventListener('click', flipCard);  // To avoid selecting an image twice
 
     if (cardsSelected.length === 2) {
         setTimeout(checkMatch, 500);
@@ -97,6 +98,8 @@ function checkMatch() {
     else {
         cards[choiceOneId].setAttribute('src', './images/blank');
         cards[choiceTwoId].setAttribute('src', './images/blank');
+        cards[choiceOneId].removeEventListener('click', flipCard);  //Re-add event listener
+        cards[choiceTwoId].removeEventListener('click', flipCard);  //Re-add event listener
     }
     cardsSelected.length = 0;
     cardsSelectedId.length = 0;
