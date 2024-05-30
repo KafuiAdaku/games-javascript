@@ -96,8 +96,8 @@ function checkMatch() {
         cardsWon.push(...cardsSelected)
     }
     else {
-        cards[choiceOneId].setAttribute('src', './images/blank');
-        cards[choiceTwoId].setAttribute('src', './images/blank');
+        cards[choiceOneId].setAttribute('src', './images/blank.png');
+        cards[choiceTwoId].setAttribute('src', './images/blank.png');
         cards[choiceOneId].removeEventListener('click', flipCard);  //Re-add event listener
         cards[choiceTwoId].removeEventListener('click', flipCard);  //Re-add event listener
     }
