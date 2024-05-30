@@ -111,6 +111,6 @@ function checkMatch() {
     cardsSelectedId.length = 0;
 
     if (cardsWon.length === cardArray.length) {
-        alert(`You did it all in ${turns} turns`);
+        setTimeout(() => alert(`You did it all in ${turns} turns`), 0);
     }
 }
