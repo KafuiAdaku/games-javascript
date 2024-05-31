@@ -25,7 +25,7 @@ startButton.addEventListener('click', () => {
         pauseButton.style.display = 'inline-block';  // show pause button
 
         result = 0;
-        timer = 10;
+        timer = 60;
         scoreDisplay.innerHTML = result;
         timeDisplay.innerHTML = timer;
 
@@ -81,7 +81,7 @@ function randomSquare() {
 
 // Set interval to repeat random selection of squares
 function moveMole() {
-    moveMoleId = setInterval(randomSquare, 1000);
+    moveMoleId = setInterval(randomSquare, 700);
 }
 
 
