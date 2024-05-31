@@ -13,12 +13,16 @@ let countDownId = null;
 let gameRunning = false;
 let gamePaused = false;
 
+// Keep the pause button invisible until game starts
+pauseButton.style.display = 'none';
+
 // Start game button functionality
 startButton.addEventListener('click', () => {
     // Reset game
     if (!gameRunning) {
         gameRunning = true;
         startButton.disabled = true;  // Disable start button
+        pauseButton.style.display = 'inline-block';  // show pause button
 
         result = 0;
         timer = 10;
@@ -41,10 +45,11 @@ pauseButton.addEventListener('click', () => {
         // Pause the game
         gamePaused = True;
         clearInterval(countDownId);
-        clearInterval(moveMole);
+        clearInterval(moveMoleId);
         squares.forEach(square => {
             square.removeEventListener('mousedown', handleMouseDown);
         });
+        pauseButton.innerHTML = 'Resume';
     } else if (gameRunning && gamePaused) {
         // Resume the game
         gamePaused = false;
@@ -53,6 +58,7 @@ pauseButton.addEventListener('click', () => {
         });
         moveMole();
         countDownId = setInterval(countDown, 1000);
+        pauseButton.innerHTML = 'Resume';
     }
 });
 
@@ -104,6 +110,7 @@ function countDown() {
         })
         gameRunning = false;
         startButton.disabled = false;  // Enable start button
+        pauseButton.style.display = 'none'; // Hide pause button
         squares.forEach(square => {
             square.classList.remove('mole')
         });
