@@ -13,3 +13,5 @@ function randomSquare() {
     let randSquare = squares[Math.floor(Math.random() * 9)];
     randSquare.classList.add('mole');
 }
+
+randomSquare();
