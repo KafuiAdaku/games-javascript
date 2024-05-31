@@ -41,7 +41,7 @@ function countDown() {
     if (timer === 0) {
         clearInterval(countDownId);
         clearInterval(moveMoleId)
-        alert('GAME OVER! Your final score is ' + result);
+        setTimeout(() => alert('GAME OVER! Your final score is ' + result), 0);
 
     }
 }
