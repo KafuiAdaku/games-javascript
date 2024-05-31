@@ -41,6 +41,12 @@ function randomSquare() {
 }
 
 
+// Set interval to repeat random selection of squares
+function moveMole() {
+    moveMoleId = setInterval(randomSquare, 1000);
+}
+
+
 // Event handler for when a mole is clicked
 function handleMouseDown() {
     if (this.id === hitPosition && gameRunning) {
@@ -55,12 +61,6 @@ function handleMouseDown() {
 squares.forEach(square => {
     square.addEventListener('mousedown', handleMouseDown);
 })
-
-
-// Set interval to repeat random selection of squares
-function moveMole() {
-    moveMoleId = setInterval(randomSquare, 1000);
-}
 
 
 // Countdown functionality
