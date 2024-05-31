@@ -3,6 +3,7 @@ const mole = document.querySelector('.mole');
 const time = document.querySelector('#time-left')
 const score = document.querySelector('#score');
 const startButton = document.querySelector('#start-button');
+const pauseButton = document.querySelector('#pause-button');
 
 let result = null;
 let hitPosition = null;
@@ -10,7 +11,9 @@ let timer = null;
 let moveMoleId = null;
 let countDownId = null;
 let gameRunning = false;
+let gamePaused = false;
 
+// Start game button functionality
 startButton.addEventListener('click', () => {
     // Reset game
     if (!gameRunning) {
@@ -30,6 +33,29 @@ startButton.addEventListener('click', () => {
         countDownId = setInterval(countDown, 1000);
     }
 })
+
+
+// Pause game button functionality
+pauseButton.addEventListener('click', () => {
+    if (gameRunning && !gamePaused) {
+        // Pause the game
+        gamePaused = True;
+        clearInterval(countDownId);
+        clearInterval(moveMole);
+        squares.forEach(square => {
+            square.removeEventListener('mousedown', handleMouseDown);
+        });
+    } else if (gameRunning && gamePaused) {
+        // Resume the game
+        gamePaused = false;
+        squares.forEach(square => {
+            square.addEventListener('mousedown', handleMouseDown);
+        });
+        moveMole();
+        countDownId = setInterval(countDown, 1000);
+    }
+});
+
 
 // Randomly select squares
 function randomSquare() {
