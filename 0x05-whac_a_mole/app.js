@@ -27,7 +27,7 @@ startButton.addEventListener('click', () => {
         result = 0;
         timer = 10;
         scoreDisplay.innerHTML = result;
-        time.innerHTML = timer;
+        timeDisplay.innerHTML = timer;
 
         // clear any existing intervals
         clearInterval(countDownId);
