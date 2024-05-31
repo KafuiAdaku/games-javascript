@@ -14,4 +14,9 @@ function randomSquare() {
     randSquare.classList.add('mole');
 }
 
-randomSquare();
+function moveMole() {
+    let intervId = null;
+    intervId = setInterval(randomSquare, 500);
+}
+
+moveMole();
