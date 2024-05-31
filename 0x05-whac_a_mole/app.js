@@ -43,7 +43,7 @@ startButton.addEventListener('click', () => {
 pauseButton.addEventListener('click', () => {
     if (gameRunning && !gamePaused) {
         // Pause the game
-        gamePaused = True;
+        gamePaused = true;
         clearInterval(countDownId);
         clearInterval(moveMoleId);
         squares.forEach(square => {
