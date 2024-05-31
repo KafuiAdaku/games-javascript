@@ -15,6 +15,8 @@ startButton.addEventListener('click', () => {
     // Reset game
     if (!gameRunning) {
         gameRunning = true;
+        startButton.disabled = true;  // Disable start button
+
         result = 0;
         timer = 10;
         score.innerHTML = result;
@@ -75,6 +77,11 @@ function countDown() {
             square.removeEventListener('mousedown', handleMouseDown )
         })
         gameRunning = false;
+        startButton.disabled = false;  // Enable start button
+        squares.forEach(square => {
+            square.classList.remove('mole')
+        });
+
         alert('GAME OVER! Your final score is ' + result);
 
     }
