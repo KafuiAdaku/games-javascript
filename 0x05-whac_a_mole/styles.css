@@ -11,3 +11,8 @@
     height: 200px;
     border: solid 1px black;
 }
+
+.mole {
+    /* background-image: url('mole.png'); */
+    background-color: blue
+}
