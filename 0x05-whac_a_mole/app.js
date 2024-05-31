@@ -11,7 +11,9 @@ function randomSquare() {
     })
 
     let randSquare = squares[Math.floor(Math.random() * squares.length)];
-    randSquare.classList.add('mole');
+    console.log(randSquare);
+    console.log(Math.floor(Math.random() * squares.length));
+    // randSquare.classList.add('mole');
 }
 
 randomSquare();
