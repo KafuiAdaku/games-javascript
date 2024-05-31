@@ -62,7 +62,7 @@ pauseButton.addEventListener('click', () => {
         });
         moveMole();
         countDownId = setInterval(countDown, 1000);
-        pauseButton.innerHTML = 'Resume';
+        pauseButton.innerHTML = 'Pause';
     }
 });
 

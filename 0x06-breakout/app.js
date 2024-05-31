@@ -1,4 +1,12 @@
 const grid = document.querySelector('.grid');
-const block = document.createElement('div');
-block.classList.add('block');
-grid.appendChild(block);
+
+function addBlock() {
+    const block = document.createElement('div');
+    block.classList.add('block');
+    block.style.left = '100px';
+    block.style.bottom = '20px';
+    grid.appendChild(block);
+}
+
+addBlock();
+addBlock();
