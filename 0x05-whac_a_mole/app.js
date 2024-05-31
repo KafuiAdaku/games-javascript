@@ -49,7 +49,7 @@ function moveMole() {
     moveMoleId = setInterval(randomSquare, 1000);
 }
 
-moveMole();
+// moveMole();
 
 function countDown() {
     timer--;
