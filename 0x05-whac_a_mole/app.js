@@ -10,7 +10,7 @@ function randomSquare() {
         square.classList.remove('mole')
     })
 
-    let randSquare = squares[Math.floor(Math.random() * 9)];
+    let randSquare = squares[Math.floor(Math.random() * squares.length)];
     randSquare.classList.add('mole');
 }
 
