@@ -33,6 +33,10 @@ startButton.addEventListener('click', () => {
         clearInterval(countDownId);
         clearInterval(moveMoleId);
 
+        squares.forEach(square => {
+            square.addEventListener('mousedown', handleMouseDown);
+        })
+
         moveMole();
         countDownId = setInterval(countDown, 1000);
     }
