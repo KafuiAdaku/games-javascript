@@ -1,7 +1,7 @@
 const squares = document.querySelectorAll('.square');
 const mole = document.querySelector('.mole');
-const time = document.querySelector('#time-left')
-const score = document.querySelector('#score');
+const timeDisplay = document.querySelector('#time-left')
+const scoreDisplay = document.querySelector('#score');
 const startButton = document.querySelector('#start-button');
 const pauseButton = document.querySelector('#pause-button');
 
@@ -26,7 +26,7 @@ startButton.addEventListener('click', () => {
 
         result = 0;
         timer = 10;
-        score.innerHTML = result;
+        scoreDisplay.innerHTML = result;
         time.innerHTML = timer;
 
         // clear any existing intervals
@@ -89,7 +89,7 @@ function moveMole() {
 function handleMouseDown() {
     if (this.id === hitPosition && gameRunning) {
             result++;
-            score.innerHTML = result;
+            scoreDisplay.innerHTML = result;
             hitPosition = null;
         }
 }
@@ -104,7 +104,7 @@ squares.forEach(square => {
 // Countdown functionality
 function countDown() {
     timer--;
-    time.innerHTML = timer;
+    timeDisplay.innerHTML = timer;
 
     if (timer === 0) {
         clearInterval(countDownId);
@@ -119,7 +119,9 @@ function countDown() {
             square.classList.remove('mole')
         });
 
-        alert('GAME OVER! Your final score is ' + result);
+        setTimeout(() => alert('GAME OVER! Your final score is ' + result), 0);
+        scoreDisplay.innerHTML =  0;
+
 
     }
 }
