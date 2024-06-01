@@ -101,7 +101,7 @@ document.addEventListener('keydown', moveUser);
 
 
 // Create ball
-const ball = docuement.createElement('div');
+const ball = document.createElement('div');
 ball.classList.add('ball');
 ball.style.left = ballCurrentPos[0] + 'px';
 ball.style.bottom = ballCurrentPos[1] + 'px';
