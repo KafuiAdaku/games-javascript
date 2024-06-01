@@ -67,22 +67,22 @@ grid.appendChild(user);
 function moveUser(event) {
     switch(event.key) {
         case 'ArrowLeft':
-            currentPos[0] -= 10 + 'px';
+            currentPos[0] -= 10;
             drawUser();
             break;
         
         case 'ArrowRight':
-            currentPos[0] += 10 + 'px';
+            currentPos[0] += 10;
             drawUser();
             break;
 
         case 'ArrowUp':
-            currentPos[1] += 10 + 'px';
+            currentPos[1] += 10;
             drawUser();
             break;
         
         case 'ArrowDown':
-            currentPos[1] -= 10 + 'px';
+            currentPos[1] -= 10;
             drawUser();
             break;
     }
