@@ -7,7 +7,14 @@ const userStartPos = [230, 10];
 const currentPos = userStartPos;
 
 const ballStartPos = [270, 40]
-const ballCurrentPos = ballStartPos
+const ballCurrentPos = ballStartPos;
+const ballDiameter = 20;
+const ballHeight = ballDiameter;
+
+let xDirection = 2;
+let yDirection = 2;
+
+let moveBallId = null;
 
 
 // create block class
@@ -115,9 +122,37 @@ grid.appendChild(ball);
 
 // move ball
 function moveBall() {
-    ballCurrentPos[0] += 2;
-    ballCurrentPos[1] += 2;
+    ballCurrentPos[0] += xDirection;
+    ballCurrentPos[1] += yDirection;
     drawBall();
+    checkCollisions();
 }
 
-setInterval(moveBall, 30);
+moveBallId = setInterval(moveBall, 30);
+
+// check for collisions
+function checkCollisions() {
+    // check for wall collision
+    if (ballCurrentPos[0] >= (gridWidth - ballDiameter) ||
+        ballCurrentPos[1] < (grid)) {
+            changeDirection();
+
+    }
+}
+
+
+function changeDirection() {
+   if (xDirection === 2 && yDirection === 2) {
+    xDirection *= -1;
+    return;
+   }
+   if (xDirection === 2 && yDirection === -2) {
+    xDirection *= -1;
+   }
+   if (xDirection === -2 && yDirection === 2) {
+    xDirection *= -1;
+   }
+   if (xDirection === -2 && yDirection === -2) {
+    xDirection *= -1;
+   }
+}
