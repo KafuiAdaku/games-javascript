@@ -2,6 +2,7 @@ const grid = document.querySelector('.grid');
 const blockWidth = 100;
 const blockHeight = 20;
 const gridWidth = 560;
+const gridHeight = 300;
 
 const userStartPos = [230, 10];
 const currentPos = userStartPos;
@@ -133,7 +134,8 @@ moveBallId = setInterval(moveBall, 30);
 // check for collisions
 function checkCollisions() {
     // check for wall collision
-    if (ballCurrentPos[0] >= (gridWidth - ballDiameter)) {
+    if (ballCurrentPos[0] >= (gridWidth - ballDiameter) ||
+        ballCurrentPos[1] >= (gridHeight - ballDiameter)) {
             changeDirection();
     }
 }
