@@ -133,10 +133,8 @@ moveBallId = setInterval(moveBall, 30);
 // check for collisions
 function checkCollisions() {
     // check for wall collision
-    if (ballCurrentPos[0] >= (gridWidth - ballDiameter) ||
-        ballCurrentPos[1] < (grid)) {
+    if (ballCurrentPos[0] >= (gridWidth - ballDiameter)) {
             changeDirection();
-
     }
 }
 
