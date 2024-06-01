@@ -75,7 +75,7 @@ function moveUser(event) {
         
         case 'ArrowRight':
             if (currentPos[1] < 460) {
-                currentPos[0] += 10;
+                currentPos[1] += 10;
                 drawUser();
             }
             
