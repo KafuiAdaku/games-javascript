@@ -1,9 +1,13 @@
 const grid = document.querySelector('.grid');
 const blockWidth = 100;
 const blockHeight = 20;
+const gridWidth = 560;
 
 const userStartPos = [230, 10];
 const currentPos = userStartPos;
+
+const ballStartPos = [230, 40]
+const ballCurrentPos = ballStartPos
 
 
 // create block class
@@ -74,14 +78,14 @@ function moveUser(event) {
             break;
         
         case 'ArrowRight':
-            if (currentPos[0] < 460) {
+            if (currentPos[0] < (gridWidth - blockWidth)) {
                 currentPos[0] += 10;
                 drawUser();
             }
             
             break;
 
-        case 'ArrowUp':
+        /* case 'ArrowUp':
             currentPos[1] += 10;
             drawUser();
             break;
@@ -89,8 +93,16 @@ function moveUser(event) {
         case 'ArrowDown':
             currentPos[1] -= 10;
             drawUser();
-            break;
+            break; */
     }
 }
 
 document.addEventListener('keydown', moveUser);
+
+
+// Create ball
+const ball = docuement.createElement('div');
+ball.classList.add('ball');
+ball.style.left = ballCurrentPos[0] + 'px';
+ball.style.bottom = ballCurrentPos[1] + 'px';
+grid.appendChild(ball);
