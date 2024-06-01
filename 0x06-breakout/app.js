@@ -134,9 +134,11 @@ moveBallId = setInterval(moveBall, 30);
 // check for collisions
 function checkCollisions() {
     // check for wall collision
-    if (ballCurrentPos[0] >= (gridWidth - ballDiameter) ||
-        ballCurrentPos[1] >= (gridHeight - ballDiameter)) {
-            changeDirection();
+    if (
+        ballCurrentPos[0] >= (gridWidth - ballDiameter) ||
+        ballCurrentPos[1] >= (gridHeight - ballDiameter)
+        ) {
+        changeDirection();
     }
 }
 
@@ -148,11 +150,14 @@ function changeDirection() {
    }
    if (xDirection === 2 && yDirection === -2) {
     xDirection *= -1;
+    return;
    }
    if (xDirection === -2 && yDirection === 2) {
     xDirection *= -1;
+    return;
    }
    if (xDirection === -2 && yDirection === -2) {
     xDirection *= -1;
+    return;
    }
 }
