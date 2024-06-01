@@ -119,3 +119,5 @@ function moveBall() {
     ballCurrentPos[1] += 2;
     drawBall();
 }
+
+setInterval(moveBall, 30);
