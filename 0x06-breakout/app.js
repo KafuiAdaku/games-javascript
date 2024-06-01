@@ -3,12 +3,18 @@ const blockWidth = 100;
 const blockHeight = 20;
 
 const userStartPos = [230, 10];
+const currentPos = userStartPos;
 
 
 // create block class
 class Block {
     constructor(xAxis, yAxis) {
-        this.bottomLeft = [xAxis, yAxis];
+        this.bottomLeft = [xAxi.block {
+            width: 100px;
+            height: 20px;
+            position: absolute;
+            background-color: blue;
+        }s, yAxis];
         this.bottomRight = [xAxis + blockWidth, yAxis];
         this.topLeft = [xAxis, yAxis + blockHeight];
         this.topRight = [xAxis + blockWidth, yAxis + blockHeight];
@@ -50,8 +56,41 @@ addBlocks()
 
 
 // Add user block
+function drawUser() {
+    user.style.left = currentPos[0] + 'px';
+    user.style.bottom = currentPos[1] + 'px';
+}
+
+
 const user = document.createElement('div');
 user.classList.add('user');
-user.style.left = userStartPos[0] + 'px';
-user.style.bottom = userStartPos[1] + 'px';
+drawUser();
 grid.appendChild(user);
+
+
+// move user
+function moveUser(event) {
+    switch(event.key) {
+        case 'ArrowLeft':
+            currentPos[0] -= 10 + 'px';
+            drawUser();
+            break;
+        
+        case 'ArrowRight':
+            currentPos[0] += 10 + 'px';
+            drawUser();
+            break;
+
+        case 'ArrowUp':
+            currentPos[1] += 10 + 'px';
+            drawUser();
+            break;
+        
+        case 'ArrowDown':
+            currentPos[1] -= 10 + 'px';
+            drawUser();
+            break;
+    }
+}
+
+document.addEventListener('keydown', moveUser);
