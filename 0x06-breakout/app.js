@@ -9,12 +9,7 @@ const currentPos = userStartPos;
 // create block class
 class Block {
     constructor(xAxis, yAxis) {
-        this.bottomLeft = [xAxi.block {
-            width: 100px;
-            height: 20px;
-            position: absolute;
-            background-color: blue;
-        }s, yAxis];
+        this.bottomLeft = [xAxis, yAxis];
         this.bottomRight = [xAxis + blockWidth, yAxis];
         this.topLeft = [xAxis, yAxis + blockHeight];
         this.topRight = [xAxis + blockWidth, yAxis + blockHeight];
