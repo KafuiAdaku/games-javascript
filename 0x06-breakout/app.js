@@ -6,7 +6,7 @@ const gridWidth = 560;
 const userStartPos = [230, 10];
 const currentPos = userStartPos;
 
-const ballStartPos = [230, 40]
+const ballStartPos = [270, 40]
 const ballCurrentPos = ballStartPos
 
 
@@ -101,8 +101,21 @@ document.addEventListener('keydown', moveUser);
 
 
 // Create ball
+function drawBall() {
+    ball.style.left = ballCurrentPos[0] + 'px';
+    ball.style.bottom = ballCurrentPos[1] + 'px';
+}
+
+
 const ball = document.createElement('div');
 ball.classList.add('ball');
-ball.style.left = ballCurrentPos[0] + 'px';
-ball.style.bottom = ballCurrentPos[1] + 'px';
+drawBall();
 grid.appendChild(ball);
+
+
+// move ball
+function moveBall() {
+    ballCurrentPos[0] += 2;
+    ballCurrentPos[1] += 2;
+    drawBall();
+}
