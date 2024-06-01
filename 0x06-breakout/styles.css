@@ -11,3 +11,10 @@
     position: absolute;
     background-color: blue;
 }
+
+.user {
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    background-color: cyan;
+}
