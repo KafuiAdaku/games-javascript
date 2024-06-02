@@ -142,7 +142,7 @@ function checkCollisions() {
             (((ballCurrentPos[1] + ballDiameter) >= blocks[i].bottomLeft[1]) &&
             (ballCurrentPos[1] <= blocks[i].topLeft[1]))
         ) {
-            const allBlocks = Array(document.querySelectorAll('.block'));
+            const allBlocks = Array.from(document.querySelectorAll('.block'));
             allBlocks[i].classList.remove('block');
             changeDirection('y');
             blocks.splice(i, 1);
