@@ -12,8 +12,9 @@ const ballCurrentPos = ballStartPos;
 const ballDiameter = 20;
 const ballHeight = ballDiameter;
 
-let xDirection = 2;
-let yDirection = 2;
+// Randomly determine the initial ball direction when game starts
+let xDirection = Math.floor(Math.random() * 100) % 2 ? 2 : -2;
+let yDirection = Math.floor(Math.random() * 100) % 2 ? 2 : -2;
 
 let moveBallId = null;
 
@@ -135,16 +136,29 @@ moveBallId = setInterval(moveBall, 30);
 function checkCollisions() {
     // check for wall collision
     if (
-        ballCurrentPos[0] >= (gridWidth - ballDiameter) ||
-        ballCurrentPos[1] >= (gridHeight - ballDiameter)
-        ) {
-        changeDirection();
+        ballCurrentPos[0] >= (gridWidth - ballDiameter) || ballCurrentPos[0] <= 0
+    ) {
+        changeDirection('x');
+    }
+    if (ballCurrentPos[1] >= (gridHeight - ballDiameter)) {
+        changeDirection('y');
+    }
+    // check for game over
+    if (ballCurrentPos[1] <= 0) {
+        clearInterval(moveBallId);
+        document.removeEventListener('keydown', moveUser)
     }
 }
 
 
-function changeDirection() {
-   if (xDirection === 2 && yDirection === 2) {
+function changeDirection(axis) {
+    if (axis === 'x') {
+        xDirection *= -1;
+    } else if (axis === 'y') {
+        yDirection *= -1;
+    }
+    return;
+   /* if (xDirection === 2 && yDirection === 2) {
     xDirection *= -1;
     return;
    }
@@ -159,5 +173,5 @@ function changeDirection() {
    if (xDirection === -2 && yDirection === -2) {
     xDirection *= -1;
     return;
-   }
+   } */
 }
