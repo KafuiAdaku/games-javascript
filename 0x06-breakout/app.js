@@ -4,6 +4,11 @@ const blockHeight = 20;
 const gridWidth = 560;
 const gridHeight = 300;
 
+const scoreDisplay = document.querySelector('#score');
+let score = 0;
+
+const userWidth = 100;
+const userHeight = 20;
 const userStartPos = [230, 10];
 const currentPos = userStartPos;
 
@@ -146,8 +151,11 @@ function checkCollisions() {
             allBlocks[i].classList.remove('block');
             changeDirection('y');
             blocks.splice(i, 1);
+            score++;
+            scoreDisplay.innerHTML = score;
         }
     }
+
     // check for wall collision
     if (
         ballCurrentPos[0] >= (gridWidth - ballDiameter) || ballCurrentPos[0] <= 0
@@ -155,6 +163,15 @@ function checkCollisions() {
         changeDirection('x');
     }
     if (ballCurrentPos[1] >= (gridHeight - ballDiameter)) {
+        changeDirection('y');
+    }
+
+    // check for user collision
+    if (
+        (((ballCurrentPos[0] + ballDiameter) >= currentPos[0]) &&
+        (ballCurrentPos[0] <= currentPos[0] + userWidth)) &&
+        (ballCurrentPos[1] === currentPos[1] + userHeight)
+    ) {
         changeDirection('y');
     }
     // check for game over
