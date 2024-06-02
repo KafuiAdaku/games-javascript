@@ -170,7 +170,8 @@ function checkCollisions() {
     if (
         (((ballCurrentPos[0] + ballDiameter) >= currentPos[0]) &&
         (ballCurrentPos[0] <= currentPos[0] + userWidth)) &&
-        (ballCurrentPos[1] === currentPos[1] + userHeight)
+        ((ballCurrentPos[1] >= currentPos[1]) &&
+        (ballCurrentPos[1 ]<= (currentPos[1] + userHeight)))
     ) {
         changeDirection('y');
     }
