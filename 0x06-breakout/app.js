@@ -134,6 +134,20 @@ moveBallId = setInterval(moveBall, 30);
 
 // check for collisions
 function checkCollisions() {
+    // check for block collisions
+    for (let i = 0; i < blocks.length; i++) {
+        if (
+            ((ballCurrentPos[0] >= blocks[i].bottomLeft[0]) &&
+            (ballCurrentPos[0] <= blocks[i].bottomRight[0])) &&
+            (((ballCurrentPos[1] + ballDiameter) >= blocks[i].bottomLeft[1]) &&
+            (ballCurrentPos[1] <= blocks[i].topLeft[1]))
+        ) {
+            const allBlocks = Array(document.querySelectorAll('.block'));
+            allBlocks[i].classList.remove('block');
+            changeDirection('y');
+            blocks.splice(i, 1);
+        }
+    }
     // check for wall collision
     if (
         ballCurrentPos[0] >= (gridWidth - ballDiameter) || ballCurrentPos[0] <= 0
