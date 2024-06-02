@@ -14,7 +14,7 @@ const ballHeight = ballDiameter;
 
 // Randomly determine the initial ball direction when game starts
 let xDirection = Math.floor(Math.random() * 100) % 2 ? 2 : -2;
-let yDirection = Math.floor(Math.random() * 100) % 2 ? 2 : -2;
+let yDirection = 2;
 
 let moveBallId = null;
 
