@@ -153,6 +153,13 @@ function checkCollisions() {
             blocks.splice(i, 1);
             score++;
             scoreDisplay.innerHTML = score;
+
+            // check for win
+            if (blocks.length === 0) {
+                scoreDisplay.innerHTML = 'YOU WIN!';
+                clearInterval(moveBallId);
+                document.removeEventListener('keydown', moveUser);
+            }
         }
     }
 
@@ -170,8 +177,7 @@ function checkCollisions() {
     if (
         (((ballCurrentPos[0] + ballDiameter) >= currentPos[0]) &&
         (ballCurrentPos[0] <= currentPos[0] + userWidth)) &&
-        ((ballCurrentPos[1] >= currentPos[1]) &&
-        (ballCurrentPos[1 ]<= (currentPos[1] + userHeight)))
+        (ballCurrentPos[1] === currentPos[1] + userHeight)
     ) {
         changeDirection('y');
     }
