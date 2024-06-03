@@ -1,3 +1,6 @@
+.header {
+    margin: 20px;
+}
 .grid {
     border: 1px black solid;
     height: 180px;
