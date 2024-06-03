@@ -5,8 +5,6 @@ const squares = document.querySelectorAll('.grid div');
 
 let frogCurrentInd = 76;
 
-document.addEventListener('keyup', moveFrog)
-
 function moveFrog(event) {
     switch(event.key) {
         case 'ArrowLeft':
@@ -22,3 +20,6 @@ function moveFrog(event) {
             squares[frogCurrentInd].classList.add('frog');
     }
 }
+
+
+document.addEventListener('keyup', moveFrog)
