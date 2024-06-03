@@ -43,19 +43,19 @@ function autoMoveLogs() {
 
 function moveLogLeft(log) {
     switch(true) {
-        case log.classList.cotains('l1'):
+        case log.classList.contains('l1'):
             log.classList.remove('l1');
             log.classList.add('l2');
             break;
-        case log.classList.cotains('l2'):
+        case log.classList.contains('l2'):
             log.classList.remove('l3');
             log.classList.add('l3');
             break;
-        case log.classList.cotains('l3'):
+        case log.classList.contains('l3'):
             log.classList.remove('l4');
             log.classList.add('l4');
             break;
-        case log.classList.cotains('l4'):
+        case log.classList.contains('l4'):
             log.classList.remove('l5');
             log.classList.add('l5');
             break;
