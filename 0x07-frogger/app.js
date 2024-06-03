@@ -13,29 +13,20 @@ function moveFrog(event) {
 
     switch(event.key) {
         case 'ArrowLeft':
-            if(frogCurrentIdx % squaresPerRow !== 0) {
+            if(frogCurrentIdx % squaresPerRow !== 0)
                 frogCurrentIdx -= 1
-                console.log('move left');
-            }
             break;
         case 'ArrowRight':
             if (frogCurrentIdx % squaresPerRow < squaresPerRow - 1)
-                {
                     frogCurrentIdx += 1;
-                    console.log('move right');
-                }
             break;
         case 'ArrowDown':
-            if (frogCurrentIdx + squaresPerRow < squaresPerRow * squaresPerRow) {
+            if (frogCurrentIdx + squaresPerRow < squaresPerRow * squaresPerRow)
                 frogCurrentIdx += squaresPerRow;
-                console.log('move down');
-            }
             break;
         case 'ArrowUp':
-            if (frogCurrentIdx >= squaresPerRow) {
+            if (frogCurrentIdx >= squaresPerRow)
                 frogCurrentIdx -= squaresPerRow;
-                console.log('move up');
-            }
             break;
     }
     squares[frogCurrentIdx].classList.add('frog');
