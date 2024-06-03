@@ -4,6 +4,7 @@ const startPauseButton = document.getElementById('start-pause-button');
 const squares = document.querySelectorAll('.grid div');
 
 const logLeft = document.querySelectorAll('.log-left');
+const logRight = document.querySelectorAll('.log-right');
 
 const squaresPerRow = 9;
 
@@ -39,6 +40,7 @@ document.addEventListener('keyup', moveFrog)
 
 function autoMoveLogs() {
     logLeft.forEach(log => moveLogLeft(log));
+    logRight.forEach(log => moveLogRight(log));
 }
 
 function moveLogLeft(log) {
@@ -67,3 +69,28 @@ function moveLogLeft(log) {
 }
 
 const moveLogId = setInterval(autoMoveLogs, 1000);
+
+function moveLogRight(log) {
+    switch(true) {
+        case log.classList.contains('l1'):
+            log.classList.remove('l1');
+            log.classList.add('l5');
+            break;
+        case log.classList.contains('l5'):
+            log.classList.remove('l5');
+            log.classList.add('l4');
+            break;
+        case log.classList.contains('l4'):
+            log.classList.remove('l4');
+            log.classList.add('l3');
+            break;
+        case log.classList.contains('l3'):
+            log.classList.remove('l3');
+            log.classList.add('l2');
+            break;
+        case log.classList.contains('l2'):
+            log.classList.remove('l2');
+            log.classList.add('l1');
+            break;
+    }
+}
