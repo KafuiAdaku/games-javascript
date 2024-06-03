@@ -3,7 +3,7 @@ const resultDisplay = document.getElementById('result')
 const startPauseButton = document.getElementById('start-pause-button');
 const squares = document.querySelectorAll('.grid div');
 
-const logLeft = document.getElementsByClassName('log-left');
+const logLeft = document.querySelectorAll('.log-left');
 
 const squaresPerRow = 9;
 
