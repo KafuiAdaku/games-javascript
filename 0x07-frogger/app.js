@@ -59,6 +59,10 @@ function moveLogLeft(log) {
             log.classList.remove('l5');
             log.classList.add('l5');
             break;
+        case log.classList.contains('l5'):
+            log.classList.remove('l1');
+            log.classList.add('l1');
+            break;
     }
 }
 
