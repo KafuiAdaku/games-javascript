@@ -14,3 +14,15 @@
 .end-block {
     background-color: red;
 }
+
+.start-block {
+    background-color: blue;
+}
+
+.log-left, .log-right{
+    background-color: lightblue;
+}
+
+.car-left, .car-right {
+    background-color: lightgray;
+}
