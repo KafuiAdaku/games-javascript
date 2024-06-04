@@ -41,3 +41,13 @@
 .l4, .l5 {
     background-color: lightblue;
 }
+
+/* class c1 represents cars */
+.c1 {
+    background-color: black;
+}
+
+/* class c2, c3 represents roads */
+.c2, c3 {
+    background-color: lightgray;
+}
