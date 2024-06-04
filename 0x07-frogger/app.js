@@ -87,7 +87,7 @@ function moveLogRight(log) {
             log.classList.add('l5');
             break;
         case log.classList.contains('l2'):
-            log.classList.remove('l1');
+            log.classList.remove('l2');
             log.classList.add('l1');
             break;
         case log.classList.contains('l3'):
