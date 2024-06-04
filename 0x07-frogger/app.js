@@ -12,6 +12,7 @@ const carRight = document.querySelectorAll('.car-right');
 const squaresPerRow = 9;
 
 let frogCurrentIdx = 76;
+let moveElementsId = null;
 
 function moveFrog(event) {
     // First remove the frog from current position
@@ -48,6 +49,7 @@ function autoMoveElements() {
     logRight.forEach(log => moveLogRight(log));
     carLeft.forEach(car => moveCarLeft(car));
     carRight.forEach(car => moveCarRight(car));
+    lose();
 }
 
 function moveLogLeft(log) {
@@ -75,7 +77,7 @@ function moveLogLeft(log) {
     }
 };
 
-const moveElementsId = setInterval(autoMoveElements, 1000);
+moveElementsId = setInterval(autoMoveElements, 1000);
 
 function moveLogRight(log) {
     switch(true) {
@@ -136,5 +138,14 @@ function moveCarRight(car) {
             car.classList.remove('c3');
             car.classList.add('c2');
             break;
+    }
+};
+
+function lose() {
+    if (squares[frogCurrentIdx].classList.contains('c1')) {
+        resultDisplay.innerHTML = 'YOU LOSE!';
+        squares[frogCurrentIdx].classList.remove('frog');
+        clearInterval(moveElementsId);
+        document.removeEventListener('keyup', moveFrog);
     }
 };
