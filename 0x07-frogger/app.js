@@ -142,7 +142,11 @@ function moveCarRight(car) {
 };
 
 function lose() {
-    if (squares[frogCurrentIdx].classList.contains('c1')) {
+    if (
+        squares[frogCurrentIdx].classList.contains('c1') ||
+        squares[frogCurrentIdx].classList.contains('l4') ||
+        squares[frogCurrentIdx].classList.contains('l5')
+    ) {
         resultDisplay.innerHTML = 'YOU LOSE!';
         clearInterval(moveElementsId);
         squares[frogCurrentIdx].classList.remove('frog');
