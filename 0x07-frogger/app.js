@@ -144,8 +144,8 @@ function moveCarRight(car) {
 function lose() {
     if (squares[frogCurrentIdx].classList.contains('c1')) {
         resultDisplay.innerHTML = 'YOU LOSE!';
-        squares[frogCurrentIdx].classList.remove('frog');
         clearInterval(moveElementsId);
+        squares[frogCurrentIdx].classList.remove('frog');
         document.removeEventListener('keyup', moveFrog);
     }
 };
