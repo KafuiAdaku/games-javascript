@@ -50,6 +50,7 @@ function autoMoveElements() {
     carLeft.forEach(car => moveCarLeft(car));
     carRight.forEach(car => moveCarRight(car));
     lose();
+    win();
 }
 
 function moveLogLeft(log) {
@@ -153,3 +154,11 @@ function lose() {
         document.removeEventListener('keyup', moveFrog);
     }
 };
+
+function win() {
+    if (squares[frogCurrentIdx].classList.contains('end-block')) {
+        resultDisplay.textContent = 'YOU WIN!';
+        clearInterval(moveElementsId);
+        document.removeEventListener('keyup', moveFrog);
+    }
+}
