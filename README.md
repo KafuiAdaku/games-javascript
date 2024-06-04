@@ -3,3 +3,4 @@
 * Memory Game
 * Breakout
 * Frogger
+* Connect Four
