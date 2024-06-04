@@ -15,6 +15,7 @@ let frogCurrentIdx = 76;
 let moveElementsId = null;
 
 let currentTime = 20;
+gamePaused = false;
 
 startPauseButton.addEventListener('click', startPauseGame);
 
@@ -171,10 +172,12 @@ function win() {
 }
 
 function startPauseGame() {
-    if (moveElementsId) {
+    if (moveElementsId && !gamePaused) {
+        gamePaused = true;
         clearInterval(moveElementsId);
         document.removeEventListener('keyup', moveFrog);
     } else {
+        gamePaused = false;
         moveElementsId = setInterval(autoMoveElements, 1000);
         document.addEventListener('keyup', moveFrog);
     }
