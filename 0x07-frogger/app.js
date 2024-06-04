@@ -45,7 +45,6 @@ function moveFrog(event) {
 }
 
 
-document.addEventListener('keyup', moveFrog)
 
 
 // Move logs and cars functionality
