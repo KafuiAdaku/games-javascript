@@ -17,6 +17,8 @@ let moveElementsId = null;
 let currentTime = 20;
 gamePaused = false;
 
+let checkLoseWinTimer = null;
+
 startPauseButton.addEventListener('click', startPauseGame);
 
 function moveFrog(event) {
@@ -53,8 +55,6 @@ function autoMoveElements() {
     logRight.forEach(log => moveLogRight(log));
     carLeft.forEach(car => moveCarLeft(car));
     carRight.forEach(car => moveCarRight(car));
-    lose();
-    win();
     currentTime--;
     timeLeftDisplay.innerHTML = currentTime;
 }
@@ -157,6 +157,7 @@ function lose() {
     ) {
         resultDisplay.innerHTML = 'YOU LOSE!';
         clearInterval(moveElementsId);
+        clearInterval(checkLoseWinTimer);
         squares[frogCurrentIdx].classList.remove('frog');
         document.removeEventListener('keyup', moveFrog);
     }
@@ -166,18 +167,30 @@ function win() {
     if (squares[frogCurrentIdx].classList.contains('end-block')) {
         resultDisplay.textContent = 'YOU WIN!';
         clearInterval(moveElementsId);
+        clearInterval(checkLoseWinTimer);
         document.removeEventListener('keyup', moveFrog);
     }
 }
+
+
+function checkLoseWin() {
+    lose();
+    win();
+}
+
+checkLoseWinTimer = setInterval(checkLoseWin, 30);
 
 function startPauseGame() {
     if (moveElementsId && !gamePaused) {
         gamePaused = true;
         clearInterval(moveElementsId);
+        clearInterval(checkLoseWinTimer)
         document.removeEventListener('keyup', moveFrog);
     } else {
         gamePaused = false;
         moveElementsId = setInterval(autoMoveElements, 1000);
+        checkLoseWinTimer = setInterval(checkLoseWin, 30);
+
         document.addEventListener('keyup', moveFrog);
     }
 }
