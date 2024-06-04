@@ -172,7 +172,7 @@ function win() {
 
 function startPauseGame() {
     if (moveElementsId) {
-        clearInter(moveElementsId);
+        clearInterval(moveElementsId);
         document.removeEventListener('keyup', moveFrog);
     } else {
         moveElementsId = setInterval(autoMoveElements, 1000);
