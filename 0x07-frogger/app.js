@@ -42,10 +42,12 @@ function moveFrog(event) {
 document.addEventListener('keyup', moveFrog)
 
 
-// Move logs functionality
-function autoMoveLogs() {
+// Move logs and cars functionality
+function autoMoveElements() {
     logLeft.forEach(log => moveLogLeft(log));
     logRight.forEach(log => moveLogRight(log));
+    carLeft.forEach(car => moveCarLeft(car));
+    carRight.forEach(car => moveCarRight(car));
 }
 
 function moveLogLeft(log) {
@@ -73,7 +75,7 @@ function moveLogLeft(log) {
     }
 };
 
-const moveLogId = setInterval(autoMoveLogs, 1000);
+const moveElementsId = setInterval(autoMoveElements, 1000);
 
 function moveLogRight(log) {
     switch(true) {
@@ -102,11 +104,6 @@ function moveLogRight(log) {
 
 
 // Move cars functionality
-function autoMoveCars() {
-    carLeft.forEach(car => moveCarLeft(car));
-    carRight.forEach(car => moveCarRight(car));
-};
-const moveCarId = setInterval(autoMoveCars, 1000);
 function moveCarLeft(car) {
     switch(true) {
         case car.classList.contains('c1'):
