@@ -14,6 +14,10 @@ const squaresPerRow = 9;
 let frogCurrentIdx = 76;
 let moveElementsId = null;
 
+let currentTime = 20;
+
+startPauseButton.addEventListener('click', startPauseGame);
+
 function moveFrog(event) {
     // First remove the frog from current position
     squares[frogCurrentIdx].classList.remove('frog');
@@ -51,6 +55,8 @@ function autoMoveElements() {
     carRight.forEach(car => moveCarRight(car));
     lose();
     win();
+    currentTime--;
+    timeLeftDisplay.innerHTML = currentTime;
 }
 
 function moveLogLeft(log) {
@@ -144,6 +150,7 @@ function moveCarRight(car) {
 
 function lose() {
     if (
+        (currentTime === 0 && !(squares[frogCurrentIdx].classList.contains('end-block'))) ||
         squares[frogCurrentIdx].classList.contains('c1') ||
         squares[frogCurrentIdx].classList.contains('l4') ||
         squares[frogCurrentIdx].classList.contains('l5')
@@ -160,5 +167,15 @@ function win() {
         resultDisplay.textContent = 'YOU WIN!';
         clearInterval(moveElementsId);
         document.removeEventListener('keyup', moveFrog);
+    }
+}
+
+function startPauseGame() {
+    if (moveElementsId) {
+        clearInter(moveElementsId);
+        document.removeEventListener('keyup', moveFrog);
+    } else {
+        moveElementsId = setInterval(autoMoveElements, 1000);
+        document.addEventListener('keyup', moveFrog);
     }
 }
