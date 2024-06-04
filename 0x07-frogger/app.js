@@ -84,7 +84,7 @@ function moveLogLeft(log) {
     }
 };
 
-moveElementsId = setInterval(autoMoveElements, 1000);
+// moveElementsId = setInterval(autoMoveElements, 1000);
 
 function moveLogRight(log) {
     switch(true) {
