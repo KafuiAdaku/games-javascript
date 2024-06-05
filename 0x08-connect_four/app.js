@@ -21,8 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
             checkLeft(sqIdx, playerNumber) ||
             checkRight(sqIdx, playerNumber) ||
             checkDown(sqIdx, playerNumber) ||
-            checkDiagonalLeft(sqIdx, playerNumber) ||
-            checkDiagonalRight(sqIdx, playerNumber)
+            checkDiagonalLeftDown(sqIdx, playerNumber) ||
+            checkDiagonalRightDown(sqIdx, playerNumber) ||
+            checkDiagonalLeftUp(sqIdx, playerNumber) ||
+            checkDiagonalRightUp(sqIdx, playerNumber)
         ) {
             alert(`Player ${playerNumber} WINS!`);
             for (let i = 0; i < squares.length - sqPerRow; i++) {
@@ -81,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    function checkDiagonalLeft(sqIdx, player) {
+    function checkDiagonalLeftDown(sqIdx, player) {
         const playerClass = player === 1 ? 'player-one': 'player-two';
         let count = 0;
         const limit = sqIdx + (3 * sqPerRow) - 3;
@@ -98,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
     }
 
-    function checkDiagonalRight(sqIdx, player) {
+    function checkDiagonalRightDown(sqIdx, player) {
         const playerClass = player === 1 ? 'player-one' : 'player-two';
         let count = 0;
         const limit = sqIdx + (3 * sqPerRow) + 3;
@@ -109,6 +111,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (squares[i].classList.contains(playerClass)) {
                     count++;
                 }
+            }
+            return count === 4 ? true : false;
+        }
+        return false;
+    }
+
+
+    function checkDiagonalLeftUp(sqIdx, player) {
+        const playerClass = player === 1 ? 'player-one' : 'player-two';
+        let count = 0;
+        const limit = sqIdx - (3 * sqPerRow) - 3;
+        if (limit >= 0) {
+            for (let i = sqIdx; i >= limit; i -= sqPerRow - 1) {
+                if (i % sqPerRow > sqIdx % sqPerRow)
+                    break;
+                if (squares[i].classList.contains(playerClass))
+                    count++;
+            }
+            return count === 4 ? true : false;
+        }
+        return false;
+    }
+
+    
+    function checkDiagonalRightUp(sqIdx, player) {
+        const playerClass = player === 1 ? 'player-one' : 'player-two';
+        let count = 0;
+        const limit = sqIdx - (3 * sqPerRow) - 3;
+        if (limit >= 0) {
+            for (let i = sqIdx; i >= limit; i -= sqPerRow + 1) {
+                if (i % sqPerRow < sqIdx % sqPerRow)
+                    break;
+                if (squares[i].classList.contains(playerClass))
+                    count++;
             }
             return count === 4 ? true : false;
         }
