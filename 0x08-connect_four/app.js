@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (
             checkLeft(sqIdx, playerNumber) ||
             checkRight(sqIdx, playerNumber) ||
-            checkDown(sqIdx, playerNumber)
+            checkDown(sqIdx, playerNumber) ||
+            checkDiagonalLeft(sqIdx, playerNumber) ||
+            checkDiagonalRight(sqIdx, playerNumber)
         ) {
             alert(`Player ${playerNumber} WINS!`);
             for (let i = 0; i < squares.length - sqPerRow; i++) {
@@ -69,6 +71,41 @@ document.addEventListener('DOMContentLoaded', () => {
         const limit = sqIdx + (3 * sqPerRow);
         if (limit < squares.length) {
             for (let i = sqIdx; i <= limit; i += sqPerRow) {
+                if (squares[i].classList.contains(playerClass)) {
+                    count++;
+                }
+            }
+            return count === 4 ? true : false;
+        }
+        return false;
+    }
+
+
+    function checkDiagonalLeft(sqIdx, player) {
+        const playerClass = player === 1 ? 'player-one': 'player-two';
+        let count = 0;
+        const limit = sqIdx + (3 * sqPerRow) - 3;
+        if (limit < squares.length) {
+            for (let i = sqIdx; i <= limit; i += sqPerRow - 1) {
+                if (i % sqPerRow < sqIdx % sqPerRow)
+                    break;  // prevent crossing to the previous row
+                if (squares[i].classList.contains(playerClass)) {
+                    count++;
+                }
+            }
+            return count === 4 ? true : false;
+        }
+        return false;
+    }
+
+    function checkDiagonalRight(sqIdx, player) {
+        const playerClass = player === 1 ? 'player-one' : 'player-two';
+        let count = 0;
+        const limit = sqIdx + (3 * sqPerRow) - 3;
+        if (limit < squares.length) {
+            for (let i = sqIdx; i < limit; i -= sqPerRow + 1) {
+                if (i % sqPerRow > sqIdx % sqPerRow)
+                    break;  // prevent crossing to the previous row
                 if (squares[i].classList.contains(playerClass)) {
                     count++;
                 }
