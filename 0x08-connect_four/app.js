@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     for (let i = 0; i < squares.length - sqPerRow; i++) {
-        clickkHandlers[i] = handleclick(i);
+        clickHandlers[i] = handleClick(i);
         squares[i].addEventListener('click', clickHandlers[i]);
     }
 
