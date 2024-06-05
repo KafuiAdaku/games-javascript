@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkForWin(sqIdx) {
         const playerNumber = currentPlayer === 1 ? 2 : 1;  // switch to current player
-        if (checkLeft(sqIdx, playerNumber) || checkRight(sqIdx, playerNumber)) {
+        if (
+            checkLeft(sqIdx, playerNumber) ||
+            checkRight(sqIdx, playerNumber) ||
+            checkDown(sqIdx, playerNumber)
+        ) {
             alert(`Player ${playerNumber} WINS!`)
         }
     }
@@ -38,6 +42,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sqIdx + 3 <= upperBound) {
             for (sqIdx; sqIdx <= limit; sqIdx++){
                 if(squares[sqIdx].classList.contains(playerClass)) {
+                    count++;
+                }
+            }
+            return count === 4 ? true : false;
+        }
+        return false;
+    }
+
+
+    function checkDown(sqIdx, player) {
+        const playerClass = player === 1 ? 'player-one' : 'player-two';
+        let count = 0;
+        const limit = sqIdx + (3 * sqPerRow);
+        if (limit < squares.length) {
+            for (let i = sqIdx; i <= limit; i += sqPerRow) {
+                if (squares[i].classList.contains(playerClass)) {
                     count++;
                 }
             }
