@@ -101,9 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkDiagonalRight(sqIdx, player) {
         const playerClass = player === 1 ? 'player-one' : 'player-two';
         let count = 0;
-        const limit = sqIdx + (3 * sqPerRow) - 3;
+        const limit = sqIdx + (3 * sqPerRow) + 3;
         if (limit < squares.length) {
-            for (let i = sqIdx; i < limit; i -= sqPerRow + 1) {
+            for (let i = sqIdx; i < limit; i += sqPerRow + 1) {
                 if (i % sqPerRow > sqIdx % sqPerRow)
                     break;  // prevent crossing to the previous row
                 if (squares[i].classList.contains(playerClass)) {
