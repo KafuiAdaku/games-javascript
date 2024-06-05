@@ -13,7 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
             checkRight(sqIdx, playerNumber) ||
             checkDown(sqIdx, playerNumber)
         ) {
-            alert(`Player ${playerNumber} WINS!`)
+            alert(`Player ${playerNumber} WINS!`);
+            for (let i = 0; i < squares.length - sqPerRow; i++) {
+                squares[i].removeEventListener('click', handleClick)
+            }
         }
     }
     
@@ -66,22 +69,26 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
     }
 
+
+    function handleClick() {
+        // if the square below the current square is taken, you can select on top of it
+        if (squares[i + 7].classList.contains('taken')) {
+            if (currentPlayer === 1) {
+                squares[i].classList.add('player-one');
+                squares[i].classList.add('taken');
+                currentPlayer = 2;
+            } else if (currentPlayer ===2) {
+                squares[i].classList.add('player-two');
+                squares[i].classList.add('taken');
+                currentPlayer = 1;
+            } 
+            currentPlayerDisp.innerHTML = currentPlayer;
+            setTimeout(() => checkForWin(i), 0);
+        } else {alert("Can't go here");}
+    }
+
+
     for (let i = 0; i < squares.length - sqPerRow; i++) {
-        squares[i].onclick = () => {
-            // if the square below the current square is taken, you can select on top of it
-            if (squares[i + 7].classList.contains('taken')) {
-                if (currentPlayer === 1) {
-                    squares[i].classList.add('player-one');
-                    squares[i].classList.add('taken');
-                    currentPlayer = 2;
-                } else if (currentPlayer ===2) {
-                    squares[i].classList.add('player-two');
-                    squares[i].classList.add('taken');
-                    currentPlayer = 1;
-                } 
-                currentPlayerDisp.innerHTML = currentPlayer;
-                setTimeout(() => checkForWin(i), 0);
-            } else {alert("Can't go here");}
-        }
+        squares[i].addEventListener('click', handleClick)
     }
 })
