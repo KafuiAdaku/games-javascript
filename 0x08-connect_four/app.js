@@ -5,8 +5,50 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPlayer = 1;
     const sqPerRow = 7;
 
+
+    function checkForWin(sqIdx) {
+        const playerNumber = currentPlayer === 1 ? 2 : 1;  // switch to current player
+        if (checkLeft(sqIdx, playerNumber) || checkRight(sqIdx, playerNumber)) {
+            alert(`Player ${playerNumber} WINS!`)
+        }
+    }
+    
+
+    function checkLeft(sqIdx, player) {
+        const playerClass = player === 1 ? 'player-one' : 'player-two';
+        let count = 0;
+        const limit = sqIdx - 3;
+        const lowerBound = Math.floor(sqIdx / sqPerRow) * sqPerRow
+        if (sqIdx - 3 >= lowerBound) {
+            for (sqIdx; sqIdx >= limit; sqIdx--){
+                if(squares[sqIdx].classList.contains(playerClass)) {
+                    count++;
+                }
+            }
+            return count === 4 ? true : false;
+        }
+        return false;
+    }
+
+    function checkRight(sqIdx, player) {
+        const playerClass = player === 1 ? 'player-one' : 'player-two';
+        let count = 0;
+        const limit = sqIdx + 3;
+        const upperBound = ((Math.floor(sqIdx / sqPerRow) + 1) * sqPerRow) - 1
+        if (sqIdx + 3 <= upperBound) {
+            for (sqIdx; sqIdx <= limit; sqIdx++){
+                if(squares[sqIdx].classList.contains(playerClass)) {
+                    count++;
+                }
+            }
+            return count === 4 ? true : false;
+        }
+        return false;
+    }
+
     for (let i = 0; i < squares.length - sqPerRow; i++) {
         squares[i].onclick = () => {
+            // if the square below the current square is taken, you can select on top of it
             if (squares[i + 7].classList.contains('taken')) {
                 if (currentPlayer === 1) {
                     squares[i].classList.add('player-one');
@@ -18,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     currentPlayer = 1;
                 } 
                 currentPlayerDisp.innerHTML = currentPlayer;
+                checkForWin(i);
             } else {alert("Can't go here");}
         }
     }
