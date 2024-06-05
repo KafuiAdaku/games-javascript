@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const sqPerRow = 7;
 
 
+
+    for (let i = 0; i < squares.length - sqPerRow; i++) {
+        squares[i].addEventListener('click', handleClick(i));
+    }
+
     function checkForWin(sqIdx) {
         const playerNumber = currentPlayer === 1 ? 2 : 1;  // switch to current player
         if (
@@ -90,8 +95,4 @@ document.addEventListener('DOMContentLoaded', () => {
         
     }
 
-
-    for (let i = 0; i < squares.length - sqPerRow; i++) {
-        squares[i].addEventListener('click', handleClick(i));
-    }
 })
