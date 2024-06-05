@@ -7,12 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const clickHandlers = [];
 
-
+    //Add click event to squares
     for (let i = 0; i < squares.length - sqPerRow; i++) {
         clickHandlers[i] = handleClick(i);
         squares[i].addEventListener('click', clickHandlers[i]);
     }
 
+
+    // Check for Win
     function checkForWin(sqIdx) {
         const playerNumber = currentPlayer === 1 ? 2 : 1;  // switch to current player
         if (
