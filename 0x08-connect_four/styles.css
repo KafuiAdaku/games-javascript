@@ -23,6 +23,6 @@
     border-radius: 10px;
 }
 
-.invisible {
+.grid div.invisible {
     border: none;
 }
