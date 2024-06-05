@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ) {
             alert(`Player ${playerNumber} WINS!`);
             for (let i = 0; i < squares.length - sqPerRow; i++) {
-                squares[i].removeEventListener('click', clickHandler[i]);
+                squares[i].removeEventListener('click', clickHandlers[i]);
             }
         }
     }
