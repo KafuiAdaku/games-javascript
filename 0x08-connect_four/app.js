@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ) {
             alert(`Player ${playerNumber} WINS!`);
             for (let i = 0; i < squares.length - sqPerRow; i++) {
-                squares[i].removeEventListener('click', handleClick)
+                squares[i].removeEventListener('click', handleClick(i));
             }
         }
     }
@@ -70,25 +70,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    function handleClick() {
-        // if the square below the current square is taken, you can select on top of it
-        if (squares[i + 7].classList.contains('taken')) {
-            if (currentPlayer === 1) {
-                squares[i].classList.add('player-one');
-                squares[i].classList.add('taken');
-                currentPlayer = 2;
-            } else if (currentPlayer ===2) {
-                squares[i].classList.add('player-two');
-                squares[i].classList.add('taken');
-                currentPlayer = 1;
-            } 
-            currentPlayerDisp.innerHTML = currentPlayer;
-            setTimeout(() => checkForWin(i), 0);
-        } else {alert("Can't go here");}
+    function handleClick(i) {
+        return function() {
+            // if the square below the current square is taken, you can select on top of it
+            if (squares[i + 7].classList.contains('taken')) {
+                if (currentPlayer === 1) {
+                    squares[i].classList.add('player-one');
+                    squares[i].classList.add('taken');
+                    currentPlayer = 2;
+                } else if (currentPlayer ===2) {
+                    squares[i].classList.add('player-two');
+                    squares[i].classList.add('taken');
+                    currentPlayer = 1;
+                } 
+                currentPlayerDisp.innerHTML = currentPlayer;
+                setTimeout(() => checkForWin(i), 0);
+            } else {alert("Can't go here");}
+        }
+        
     }
 
 
     for (let i = 0; i < squares.length - sqPerRow; i++) {
-        squares[i].addEventListener('click', handleClick)
+        squares[i].addEventListener('click', handleClick(i));
     }
 })
