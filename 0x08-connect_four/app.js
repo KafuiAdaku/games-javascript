@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     currentPlayer = 1;
                 } 
                 currentPlayerDisp.innerHTML = currentPlayer;
-                setTimeout(checkForWin(i), 0);
+                setTimeout(() => checkForWin(i), 0);
             } else {alert("Can't go here");}
         }
     }
