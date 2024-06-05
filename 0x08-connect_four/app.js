@@ -5,10 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPlayer = 1;
     const sqPerRow = 7;
 
+    const clickHandlers = [];
 
 
     for (let i = 0; i < squares.length - sqPerRow; i++) {
-        squares[i].addEventListener('click', handleClick(i));
+        clickkHandlers[i] = handleclick(i);
+        squares[i].addEventListener('click', clickHandlers[i]);
     }
 
     function checkForWin(sqIdx) {
@@ -20,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ) {
             alert(`Player ${playerNumber} WINS!`);
             for (let i = 0; i < squares.length - sqPerRow; i++) {
-                squares[i].removeEventListener('click', handleClick(i));
+                squares[i].removeEventListener('click', clickHandler[i]);
             }
         }
     }
