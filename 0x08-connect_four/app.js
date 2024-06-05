@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     squares[i].classList.add('player-two');
                     squares[i].classList.add('taken');
                     currentPlayer = 1;
-                } else {alert("Can't go here");}
+                } 
                 currentPlayerDisp.innerHTML = currentPlayer;
-            } 
+            } else {alert("Can't go here");}
         }
     }
 })
