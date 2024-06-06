@@ -32,11 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function moveShooter(event) {
         squares[currentInvaderIdx].classList.remove('shooter');
         switch(event.key) {
-            case 'arrowLeft':
+            case 'ArrowLeft':
                 if (currentInvaderIdx % width !== 0)
                     currentInvaderIdx--;
                 break;
-            case 'arrowRight':
+            case 'ArrowRight':
                 if (currentInvaderIdx % width < width - 1)
                     currentInvaderIdx++;
                 break;
