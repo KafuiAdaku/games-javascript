@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
-    let currentInvaderIdx = 220;
+    let currentInvaderIdx = 202;
+    const width = 15;
 
     // Create divs representing squares in the grid
     for (let i = 0; i < 225; i++) {
@@ -27,4 +28,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     squares[currentInvaderIdx].classList.add('shooter');
     
+
+    function moveShooter(event) {
+        squares[currentInvaderIdx].classList.remove('shooter');
+        switch(event.key) {
+            case 'arrowLeft':
+                if (currentInvaderIdx % width !== 0)
+                    currentInvaderIdx--;
+                break;
+            case 'arrowRight':
+                if (currentInvaderIdx % width < width - 1)
+                    currentInvaderIdx++;
+                break;
+        }
+        squares[currentInvaderIdx].classList.add('shooter');
+    }
+
+    document.addEventListener('keydown', moveShooter);
 })
