@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
+    let currentInvaderIdx = 220;
 
     // Create divs representing squares in the grid
     for (let i = 0; i < 225; i++) {
@@ -24,6 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     draw();
 
-
+    squares[currentInvaderIdx].classList.add('shooter');
     
 })
