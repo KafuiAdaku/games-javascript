@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let goingRight = true;
 
     let moveInvaderTimer;
-    const shooter = document.querySelector('.shooter')
 
     // Create divs representing squares in the grid
     for (let i = 0; i < 225; i++) {
@@ -65,9 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
         remove();
 
         // check for lose - when invaders hit shooter
-        if (shooter.classList.contains('shooter')) {
+        if (squares[currentInvaderIdx].classList.contains('invader')) {
             clearInterval(moveInvaderTimer);
-            setTimeout(() => console.log('You Lose!'), 0)
+            setTimeout(() => alert('You Lose!'), 0)
         }
 
         //code logic for movement
