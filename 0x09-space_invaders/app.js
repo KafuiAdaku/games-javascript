@@ -1,10 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
+
     let currentInvaderIdx = 202;
     const width = 15;
     let direction = 1;
     let goingRight = true;
-    let goingLeft;
+
+    let moveInvaderTimer;
+    const shooter = document.querySelector('.shooter')
 
     // Create divs representing squares in the grid
     for (let i = 0; i < 225; i++) {
@@ -61,6 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const rightEdge = alienInvaders[alienInvaders.length - 1] % width === width - 1;
         remove();
 
+        // check for lose - when invaders hit shooter
+        if (shooter.classList.contains('shooter')) {
+            clearInterval(moveInvaderTimer);
+            setTimeout(() => console.log('You Lose!'), 0)
+        }
+
         //code logic for movement
         if(rightEdge && goingRight) {
             for (let i = 0; i < alienInvaders.length; i++) {
@@ -84,5 +93,5 @@ document.addEventListener('DOMContentLoaded', () => {
         draw();
     }
 
-    const moveInvaderTimer = setInterval(moveInvaders, 500);
+    moveInvaderTimer = setInterval(moveInvaders, 500);
 })
