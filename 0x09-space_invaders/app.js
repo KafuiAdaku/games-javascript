@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         remove();
 
         // check for lose - when invaders hit shooter
-        if (squares[currentInvaderIdx].classList.contains('invader')) {
+        if (squares[currentInvaderIdx].classList.contains('shooter')) {
             clearInterval(moveInvaderTimer);
             setTimeout(() => alert('You Lose!'), 0)
         }
