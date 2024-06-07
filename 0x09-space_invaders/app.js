@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
+    const reslutDisplay = document.querySelector('#result');
 
-    let currentInvaderIdx = 202;
+    // let currentShooterIdx = 202;
     const width = 15;
     let direction = 1;
     let goingRight = true;
@@ -38,22 +39,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    squares[currentInvaderIdx].classList.add('shooter');
+    squares[currentShooterIdx].classList.add('shooter');
     
 
     function moveShooter(event) {
-        squares[currentInvaderIdx].classList.remove('shooter');
+        squares[currentShooterIdx].classList.remove('shooter');
         switch(event.key) {
             case 'ArrowLeft':
-                if (currentInvaderIdx % width !== 0)
-                    currentInvaderIdx--;
+                if (currentShooterIdx % width !== 0)
+                    currentShooterIdx--;
                 break;
             case 'ArrowRight':
-                if (currentInvaderIdx % width < width - 1)
-                    currentInvaderIdx++;
+                if (currentShooterIdx % width < width - 1)
+                    currentShooterIdx++;
                 break;
         }
-        squares[currentInvaderIdx].classList.add('shooter');
+        squares[currentShooterIdx].classList.add('shooter');
     }
 
     document.addEventListener('keydown', moveShooter);
@@ -81,10 +82,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (let i = 0; i < alienInvaders.length; i++) {
             alienInvaders[i] += direction;
-            // check for when ivaders hit the shooter
-            if (squares[alienInvaders[i]].classList.contains('shooter')) {
+        }
+
+        // Game over check - when ivaders hit the shooter
+        if (squares[alienInvaders[i]].classList.contains('shooter')) {
+            clearInterval(moveInvaderTimer);
+            reslutDisplay.innerHTML = 'YOU LOSE!';
+            setTimeout(() => alert('YOU LOSE!'), 0);
+        }
+        for (let i = 0; i < alienInvaders.length; i++) {
+            if (squares[alienInvaders[i]] > squares.length) {
                 clearInterval(moveInvaderTimer);
-                setTimeout(() => alert('YOU LOSE!'), 0);
+                reslutDisplay.innerHTML = 'YOU LOSE!';
             }
         }
 
