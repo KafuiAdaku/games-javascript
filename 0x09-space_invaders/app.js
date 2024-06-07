@@ -70,6 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
             direction += -1;
             goingRight = false;
         }
+        if (leftEdge && !goingRight) {
+            for (let i = 0; i < alienInvaders.length; i++) {
+                alienInvaders[i] += width;
+            }
+            direction = 1;
+            goingRight = true;
+        }
         for (let i = 0; i < alienInvaders.length; i++) {
             alienInvaders[i] += direction;
         }
