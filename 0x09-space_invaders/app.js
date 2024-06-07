@@ -89,14 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Game over check
         // when ivaders hit the shooter
-        // if (
-        //     squares[currentShooterIdx].classList.contains('shooter') &&
-        //     squares[currentShooterIdx].classList.contains('invader')
-        // ) {
-        //     clearInterval(moveInvaderTimer);
-        //     resultDisplay.innerHTML = 'YOU LOSE!';
-        //     setTimeout(() => alert('YOU LOSE!'), 0);
-        // }
+        if (
+            squares[currentShooterIdx].classList.contains('shooter') &&
+            squares[currentShooterIdx].classList.contains('invader')
+        ) {
+            clearInterval(moveInvaderTimer);
+            resultDisplay.innerHTML = 'YOU LOSE!';
+            setTimeout(() => alert('YOU LOSE!'), 0);
+        }
         // when invaders hit the bottom of the grid
         console.log('square length ' + squares.length)
         for (let i = 0; i < alienInvaders.length; i++) {
