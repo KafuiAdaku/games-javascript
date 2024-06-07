@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // select squares
     const squares = Array.from(document.querySelectorAll('.grid div'));
 
-    // squares[currentShooterIdx].classList.add('shooter');
+    squares[currentShooterIdx].classList.add('shooter');
 
     const alienInvaders = [
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
