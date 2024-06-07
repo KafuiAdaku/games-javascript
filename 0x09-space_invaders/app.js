@@ -98,12 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
         //     setTimeout(() => alert('YOU LOSE!'), 0);
         // }
         // when invadaers hit the bottom of the grid
-        for (let i = 0; i < alienInvaders.length; i++) {
-            if (alienInvaders[i] >= squares.length) {
-                clearInterval(moveInvaderTimer);
-                resultDisplay.innerHTML = 'GAME OVER!';
-            }
-        }
+        // for (let i = 0; i < alienInvaders.length; i++) {
+        //     if (alienInvaders[i] >= squares.length) {
+        //         clearInterval(moveInvaderTimer);
+        //         resultDisplay.innerHTML = 'GAME OVER!';
+        //     }
+        // }
     }
 
     moveInvaderTimer = setInterval(moveInvaders, 100);
