@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
     const reslutDisplay = document.querySelector('#result');
 
-    // let currentShooterIdx = 202;
+    let currentShooterIdx = 202;
     const width = 15;
     let direction = 1;
     let goingRight = true;
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // select squares
     const squares = Array.from(document.querySelectorAll('.grid div'));
+    // squares[currentShooterIdx].classList.add('shooter');
 
     const alienInvaders = [
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
@@ -39,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    squares[currentShooterIdx].classList.add('shooter');
     
 
     function moveShooter(event) {
