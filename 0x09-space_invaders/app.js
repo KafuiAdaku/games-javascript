@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // }
         // when invaders hit the bottom of the grid
         console.log('square length ' + squares.length)
-        for (let i = 0; i < alienInvaders.length; i++) {
+        for (let i = 0; i < alienInvaders.length - width - 1; i++) {
             console.log(`alien invaders length: ${alienInvaders.length}`);
             console.log(`alien invaders at i: ${alienInvaders[i]}`)
             if (alienInvaders[i] >= squares.length) {
