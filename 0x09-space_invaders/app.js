@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
     let currentInvaderIdx = 202;
     const width = 15;
+    let direction = 1;
+    let goingRight = true;
+    let goingLeft;
 
     // Create divs representing squares in the grid
     for (let i = 0; i < 225; i++) {
@@ -59,8 +62,16 @@ document.addEventListener('DOMContentLoaded', () => {
         remove();
 
         //code logic for movement
+        if(rightEdge && goingRight) {
+            // code
+            for (let i = 0; i < alienInvaders.length; i++) {
+                alienInvaders[i] += width;
+            }
+            direction += -1;
+            goingRight = false;
+        }
         for (let i = 0; i < alienInvaders.length; i++) {
-            alienInvaders[i] += 1
+            alienInvaders[i] += direction;
         }
 
         draw();
