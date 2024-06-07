@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //     setTimeout(() => alert('YOU LOSE!'), 0);
         // }
         // when invaders hit the bottom of the grid
+        console.log('square length ' + squares.length)
         for (let i = 0; i < alienInvaders.length; i++) {
             if (alienInvaders[i] >= squares.length) {
                 resultDisplay.innerHTML = 'GAME OVER!';
