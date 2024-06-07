@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         // when invadaers hit the bottom of the grid
         for (let i = 0; i < alienInvaders.length; i++) {
-            if (alienInvaders[i] >= squares.length) {
+            if (alienInvaders[i] > squares.length) {
                 clearInterval(moveInvaderTimer);
                 resultDisplay.innerHTML = 'YOU LOSE!';
             }
