@@ -63,12 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const rightEdge = alienInvaders[alienInvaders.length - 1] % width === width - 1;
         remove();
 
-        // check for lose - when invaders hit shooter
-        if (squares[currentInvaderIdx].classList.contains('shooter')) {
-            clearInterval(moveInvaderTimer);
-            setTimeout(() => alert('You Lose!'), 0)
-        }
-
         //code logic for movement
         if(rightEdge && goingRight) {
             for (let i = 0; i < alienInvaders.length; i++) {
@@ -87,6 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (let i = 0; i < alienInvaders.length; i++) {
             alienInvaders[i] += direction;
+            // check for when ivaders hit the shooter
+            if (squares[alienInvaders[i]].classList.contains('shooter')) {
+                clearInterval(moveInvaderTimer);
+                setTimeout(() => alert('YOU LOSE!'), 0);
+            }
         }
 
         draw();
