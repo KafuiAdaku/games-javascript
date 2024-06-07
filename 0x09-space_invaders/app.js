@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => alert('YOU LOSE!'), 0);
         }
         for (let i = 0; i < alienInvaders.length; i++) {
-            if (alienInvaders[i] > squares.length) {
+            if (alienInvaders[i] >= squares.length) {
                 clearInterval(moveInvaderTimer);
                 reslutDisplay.innerHTML = 'YOU LOSE!';
             }
