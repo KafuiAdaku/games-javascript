@@ -84,6 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
             alienInvaders[i] += direction;
         }
 
+        draw();
+
         // Game over check
         // when ivaders hit the shooter
         if (squares[currentShooterIdx].classList.contains('shooter', 'invader')) {
@@ -96,11 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (alienInvaders[i] >= squares.length) {
                 clearInterval(moveInvaderTimer);
                 resultDisplay.innerHTML = 'YOU LOSE!';
-                return;
             }
         }
-
-        draw();
     }
 
     moveInvaderTimer = setInterval(moveInvaders, 500);
