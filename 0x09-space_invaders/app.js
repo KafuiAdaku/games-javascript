@@ -88,7 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Game over check
         // when ivaders hit the shooter
-        if (squares[currentShooterIdx].classList.contains('shooter', 'invader')) {
+        if (
+            squares[currentShooterIdx].classList.contains('shooter') &&
+            squares[currentShooterIdx].classList.contains('invader')
+        ) {
             clearInterval(moveInvaderTimer);
             resultDisplay.innerHTML = 'YOU LOSE!';
             setTimeout(() => alert('YOU LOSE!'), 0);
