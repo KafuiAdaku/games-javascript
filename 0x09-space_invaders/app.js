@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
-    const reslutDisplay = document.querySelector('#result');
+    const resultDisplay = document.querySelector('#result');
 
     let currentShooterIdx = 202;
     const width = 15;
@@ -84,16 +84,19 @@ document.addEventListener('DOMContentLoaded', () => {
             alienInvaders[i] += direction;
         }
 
-        // Game over check - when ivaders hit the shooter
+        // Game over check
+        // when ivaders hit the shooter
         if (squares[currentShooterIdx].classList.contains('shooter', 'invader')) {
             clearInterval(moveInvaderTimer);
-            reslutDisplay.innerHTML = 'YOU LOSE!';
+            resultDisplay.innerHTML = 'YOU LOSE!';
             setTimeout(() => alert('YOU LOSE!'), 0);
         }
+        // when invadaers hit the bottom of the grid
         for (let i = 0; i < alienInvaders.length; i++) {
             if (alienInvaders[i] >= squares.length) {
                 clearInterval(moveInvaderTimer);
-                reslutDisplay.innerHTML = 'YOU LOSE!';
+                resultDisplay.innerHTML = 'YOU LOSE!';
+                return;
             }
         }
 
