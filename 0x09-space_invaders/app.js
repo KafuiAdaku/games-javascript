@@ -63,11 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //code logic for movement
         if(rightEdge && goingRight) {
-            // code
             for (let i = 0; i < alienInvaders.length; i++) {
                 alienInvaders[i] += width;
             }
-            direction += -1;
+            direction = -1;
             goingRight = false;
         }
         if (leftEdge && !goingRight) {
@@ -77,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             direction = 1;
             goingRight = true;
         }
+
         for (let i = 0; i < alienInvaders.length; i++) {
             alienInvaders[i] += direction;
         }
