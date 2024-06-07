@@ -64,14 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
         //code logic for movement
         if(rightEdge && goingRight) {
             for (let i = 0; i < alienInvaders.length; i++) {
-                alienInvaders[i] += width;
+                alienInvaders[i] += width + 1;
             }
             direction = -1;
             goingRight = false;
         }
         if (leftEdge && !goingRight) {
             for (let i = 0; i < alienInvaders.length; i++) {
-                alienInvaders[i] += width;
+                alienInvaders[i] += width - 1;
             }
             direction = 1;
             goingRight = true;
