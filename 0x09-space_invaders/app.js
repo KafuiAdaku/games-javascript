@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('square length ' + squares.length)
         for (let i = 0; i < alienInvaders.length; i++) {
             console.log(`alien invaders length: ${alienInvaders.length}`);
+            console.log(`alien invaders at i: ${alienInvaders[i]}`)
             if (alienInvaders[i] >= squares.length) {
                 resultDisplay.innerHTML = 'GAME OVER!';
                 clearInterval(moveInvaderTimer);
