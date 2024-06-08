@@ -109,9 +109,21 @@ document.addEventListener('DOMContentLoaded', () => {
     moveInvaderTimer = setInterval(moveInvaders, 100);
 
     function shooter() {
-        for (let i = currentShooterIdx; i > 0; i--) {
-            squares[i].classList.remove('bullet');
-            squares[i + width].classList.add('bullet');
+        let laserIdx = currentShooterIdx;
+
+        function moveLaser() {
+            for (let i = laserIdx; i > 0; i--) {
+                if (squares[i].classList.contains('bullet')) {
+                    squares[i].classList.remove('bullet');
+                }
+            }
+
+            for (let i = laserIdx; i > 0; i--) {
+                if (squares[i].classList.contains('bullet')) {
+                    squares[i].classList.add('bullet');
+                }
+            }
+            // squares[i].classList.add('bullet');
         }
     }
     setInterval(shooter, 300);
