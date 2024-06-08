@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
             laserIdx -= width;
             if (laserIdx < 0) {
                 clearInterval(laserMoveId);
-            } else {
+            } else if (squares[laserIdx]) {
                 squares[laserIdx].classList.add('laser');
                 if (
                     squares[laserIdx].classList.contains('laser') &&
