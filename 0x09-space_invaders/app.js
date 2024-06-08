@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let goingRight = true;
 
     let moveInvaderTimer;
-    let laserMoveId, shooterId;
+    let laserMoveId, shooterId, laserIdx;
 
     // Create divs representing squares in the grid
     for (let i = 0; i < 225; i++) {
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     moveInvaderTimer = setInterval(moveInvaders, 100);
 
     function shooter() {
-        let laserIdx = currentShooterIdx;
+        laserIdx = currentShooterIdx;
         laserMoveId = setInterval(moveLaser, 100);
 
         function moveLaser() {
