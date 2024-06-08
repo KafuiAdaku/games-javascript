@@ -115,7 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
         function moveLaser() {
             squares[laserIdx].classList.remove('bullet');
             laserIdx -= width;
-            squares[laserIdx].classList.add('bullet');
+            if (laserIdx < 0) {
+                clearInterval(moveLaser);
+            } else {
+                squares[laserIdx].classList.add('bullet');
+            }
         }
         moveLaser();
     }
