@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function shooter() {
         let laserIdx = currentShooterIdx;
+        const laserMoveId = setInterval(moveLaser, 100);
 
         function moveLaser() {
             squares[laserIdx].classList.remove('bullet');
