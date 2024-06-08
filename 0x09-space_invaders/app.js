@@ -98,10 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => alert('YOU LOSE!'), 0);
         }
         // when invaders hit the bottom of the grid
-        console.log('square length ' + squares.length)
         for (let i = 0; i < alienInvaders.length; i++) {
-            console.log(`alien invaders length: ${alienInvaders.length}`);
-            console.log(`alien invaders at i: ${alienInvaders[i]}`)
             if (alienInvaders[i] >= squares.length - width) {
                 resultDisplay.innerHTML = 'GAME OVER!';
                 clearInterval(moveInvaderTimer);
@@ -110,4 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     moveInvaderTimer = setInterval(moveInvaders, 100);
+
+    function shooter() {
+        for (let i = currentShooterIdx; i > 0; i--) {
+            squares[i].classList.remove('bullet');
+            squares[i + width].classList.add('bullet');
+        }
+    }
+    setInterval(shooter, 300);
 })
