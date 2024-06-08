@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     squares[laserIdx].classList.remove('invader');
                     squares[laserIdx].classList.remove('laser');
                     const alienRemoved = alienInvaders.indexOf(laserIdx)
-                    alienInvaders = splice(alienRemoved, 1);``
+                    alienInvaders.splice(alienRemoved, 1);``
                     clearInterval(laserMoveId);
                 }
             }
