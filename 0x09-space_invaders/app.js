@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let goingRight = true;
 
     let moveInvaderTimer;
+    let laserMoveId, shooterId;
 
     // Create divs representing squares in the grid
     for (let i = 0; i < 225; i++) {
@@ -94,6 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
             squares[currentShooterIdx].classList.contains('invader')
         ) {
             clearInterval(moveInvaderTimer);
+            clearInterval(laserMoveId);
+            clearInterval(shooterId);
             resultDisplay.innerHTML = 'YOU LOSE!';
             setTimeout(() => alert('YOU LOSE!'), 0);
         }
@@ -102,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (alienInvaders[i] >= squares.length - width) {
                 resultDisplay.innerHTML = 'GAME OVER!';
                 clearInterval(moveInvaderTimer);
+                clearInterval(laserMoveId);
+                clearInterval(shooterId);
             }
         }
     }
@@ -110,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function shooter() {
         let laserIdx = currentShooterIdx;
-        const laserMoveId = setInterval(moveLaser, 100);
+        laserMoveId = setInterval(moveLaser, 100);
 
         function moveLaser() {
             squares[laserIdx].classList.remove('laser');
@@ -133,5 +138,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         moveLaser();
     }
-    setInterval(shooter, 300);
+    shooterId = setInterval(shooter, 300);
 })
