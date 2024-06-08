@@ -112,19 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let laserIdx = currentShooterIdx;
 
         function moveLaser() {
-            for (let i = laserIdx; i > 0; i--) {
-                if (squares[i].classList.contains('bullet')) {
-                    squares[i].classList.remove('bullet');
-                }
-            }
-
-            for (let i = laserIdx; i > 0; i--) {
-                if (squares[i].classList.contains('bullet')) {
-                    squares[i].classList.add('bullet');
-                }
-            }
-            // squares[i].classList.add('bullet');
+            squares[laserIdx].classList.remove('bullet');
+            laserIdx -= width;
+            squares[laserIdx].classList.add('bullet');
         }
+        moveLaser();
     }
     setInterval(shooter, 300);
 })
