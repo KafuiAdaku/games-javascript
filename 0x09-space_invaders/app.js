@@ -113,12 +113,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const laserMoveId = setInterval(moveLaser, 100);
 
         function moveLaser() {
-            squares[laserIdx].classList.remove('bullet');
+            squares[laserIdx].classList.remove('laser');
             laserIdx -= width;
             if (laserIdx < 0) {
                 clearInterval(laserMoveId);
             } else {
-                squares[laserIdx].classList.add('bullet');
+                squares[laserIdx].classList.add('laser');
+                if (
+                    squares[laserIdx].classList.contains('laser') &&
+                    squares[laserIdx].classList.contains('invader')
+                ) {
+                    squares[laserIdx].classList.remove('invader');
+                    squares[laserIdx].classList.remove('laser');
+                    clearInterval(laserMoveId);
+                }
             }
         }
         moveLaser();
