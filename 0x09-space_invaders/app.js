@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (squares[laserIdx].classList.contains('invader')) {
                 squares[laserIdx].classList.remove('invader');
-                squares[laserIdx].classList.remove('invader');
+                squares[laserIdx].classList.remove('laser');
                 squares[laserIdx].classList.add('boom');
 
                 setTimeout(() => squares[laserIdx].classList.remove('boom'), 300);
