@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    moveInvaderTimer = setInterval(moveInvaders, 100);
+    moveInvaderTimer = setInterval(moveInvaders, 500);
 
     function shoot(event) {
         laserIdx = currentShooterIdx;
