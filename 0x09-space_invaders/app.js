@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let goingRight = true;
 
     let moveInvaderTimer;
-    let laserId, shooterId, laserIdx;
+    let shooterId;
     const aliensRemovedArr = [];
     let result = 0;
 
@@ -99,8 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
             squares[currentShooterIdx].classList.contains('invader')
         ) {
             clearInterval(moveInvaderTimer);
-            // clearInterval(laserMoveId);
-            // clearInterval(shooterId);
+            clearInterval(laserMoveId);
+            clearInterval(shooterId);
             resultDisplay.innerHTML = 'YOU LOSE!';
             setTimeout(() => alert('YOU LOSE!'), 0);
         }
@@ -108,8 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < alienInvaders.length; i++) {
             if (alienInvaders[i] >= squares.length - width) {
                 resultDisplay.innerHTML = 'GAME OVER!';
-                // clearInterval(moveInvaderTimer);
-                // clearInterval(laserMoveId);
+                clearInterval(moveInvaderTimer);
+                clearInterval(laserMoveId);
                 clearInterval(shooterId);
             }
         }
@@ -124,8 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
     moveInvaderTimer = setInterval(moveInvaders, 500);
 
     function shoot(event) {
-        laserIdx = currentShooterIdx;
-        laserId;
+        let laserIdx = currentShooterIdx;
+        let laserId;
 
         function moveLaser() {
             squares[laserIdx].classList.remove('laser');
