@@ -101,6 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
             clearInterval(moveInvaderTimer);
             clearInterval(laserMoveId);
             clearInterval(shooterId);
+            document.removeEventListener('keydown', shoot)
+            document.removeEventListener('keydown', moveShooter)
             resultDisplay.innerHTML = 'YOU LOSE!';
             setTimeout(() => alert('YOU LOSE!'), 0);
         }
@@ -111,6 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 clearInterval(moveInvaderTimer);
                 clearInterval(laserMoveId);
                 clearInterval(shooterId);
+                document.removeEventListener('keydown', shoot)
+                document.removeEventListener('keydown', moveShooter)
             }
         }
 
@@ -118,6 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (aliensRemovedArr.length === alienInvaders.length) {
             resultDisplay.innerHTML = 'YOU WIN!';
             clearInterval(moveInvaderTimer);
+            document.removeEventListener('keydown', shoot)
+            document.removeEventListener('keydown', moveShooter)
         }
     }
 
